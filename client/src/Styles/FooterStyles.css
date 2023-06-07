@@ -1,0 +1,27 @@
+.Footer{
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.Contents{
+    padding-top: 20px;
+}
+.Contents a{
+    font-size: 15px;
+    padding-bottom: 15px;
+}
+
+.Contents h4{
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .Footer{
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+    }
+}

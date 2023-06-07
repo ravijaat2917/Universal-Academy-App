@@ -1,0 +1,84 @@
+* {
+  margin: 0px !important;
+  padding: 0px;
+}
+.Header {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: larger;
+  text-align: center;
+  background-color: rgb(120, 52, 228);
+  padding: 8px;
+}
+
+.contactsLinks {
+  padding-top: 8px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: large;
+}
+
+.socialMedialinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.SocialMedia {
+  font-size: 20px;
+  padding-left: 25px;
+}
+.socialMedialinks i {
+  padding: 10px;
+}
+
+.fa-whatsapp:hover {
+  color: green;
+}
+.fa-facebook-f:hover {
+  color: blue;
+}
+.fa-youtube:hover {
+  color: red;
+}
+.fa-twitter:hover {
+  color: aqua;
+}
+.fa-instagram:hover {
+  color: #feda75;
+}
+@media screen and (max-width: 768px) {
+  * {
+    padding: 0px;
+    margin: 0px;
+  }
+  .Header {
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    min-height: fit-content;
+    text-align: center;
+  }
+  .contactsLinks {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+  }
+  .contACTAdIV {
+    display: none;
+  }
+
+  .SocialMedia {
+    font-size: 20px;
+    padding: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .socialMedialinks i {
+  }
+}

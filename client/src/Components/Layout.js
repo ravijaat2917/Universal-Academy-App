@@ -1,29 +1,19 @@
 import React from "react";
 import { Layout, Space } from "antd";
-import Header1 from "./Header";
-import Footer1 from "./Footer";
+import Header from "./Header";
+import Footer from "./Footer";
+import "./../index.css";
 
-const { Header, Footer, Content } = Layout;
+const { Content } = Layout;
 
-const headerStyle = {
-  textAlign: "center",
-  height: 64,
-  paddingInline: 50,
-    lineHeight: "64px",
-  backgroundColor:'white'
-};
 const contentStyle = {
   textAlign: "center",
   minHeight: 120,
   lineHeight: "120px",
-    backgroundColor:'white'
-};
-const footerStyle = {
-  textAlign: "center",
-    backgroundColor:'white'
+  backgroundColor: "white",
 };
 
-const LAYOUT = ({children}) => {
+const LAYOUT = ({ children }) => {
   return (
     <>
       <Space
@@ -34,9 +24,15 @@ const LAYOUT = ({children}) => {
         size={[0, 48]}
       >
         <Layout>
-          <Header style={headerStyle}><Header1/></Header>
-                  <Content style={contentStyle}>{children}</Content>
-          <Footer style={footerStyle}><Footer1/></Footer>
+          <div>
+            <Header />
+          </div>
+          <div>
+            <Content style={contentStyle}>{children}</Content>
+          </div>
+          <div>
+            <Footer />
+          </div>
         </Layout>
       </Space>
     </>
