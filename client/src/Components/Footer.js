@@ -34,8 +34,7 @@ const Footer = () => {
         </div>
       </div>
       <p style={{ textAlign: "center" }}>
-        Copyright © 2023 universalAcademy. All Rights Reserved | Crafted by
-        <a style={{ fontSize: "14px" , padding:'12px' }}>ravijaat2917@gmail.com</a>
+        Copyright © 2023 Universal Academy. All Rights Reserved | Crafted by ravijaat2917@gmail.com
       </p>
     </>
   );
