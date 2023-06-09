@@ -53,7 +53,7 @@ nav button {
 }
 
 .demo-left {
-    padding-top: 40px;
+  padding-top: 40px;
   padding-left: 10px;
 }
 .demo-right {
@@ -66,11 +66,12 @@ nav button {
   border-radius: 12px;
 }
 
-inpMyFormItemGrouput{
-    margin-bottom: 10px !important;
+inpMyFormItemGrouput {
+  margin-bottom: 10px !important;
 }
-form button{
-  width: 100%;margin-top: 10px !important;
+form button {
+  width: 100%;
+  margin-top: 10px !important;
 }
 @media screen and (max-width: 768px) {
   .UaLogo {
@@ -136,7 +137,8 @@ form button{
     font-size: 16px;
     text-align: start;
     font-weight: bolder;
-    margin: 0px;text-shadow: 0px;
+    margin: 0px;
+    text-shadow: 0px;
   }
   .demo-left p {
     padding: 30px 15px;

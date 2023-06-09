@@ -28,7 +28,7 @@ function LandingPages() {
     return <Form.Item name={concatName} {...props} />;
   };
 
-  const onFinish = async(value) => {
+  const onFinish = async (value) => {
     console.log(value);
   };
 
@@ -74,11 +74,9 @@ function LandingPages() {
         }}
       >
         <div className="demo-left">
-          
-            <p>Advance Certifications</p>
-            <p>Certified Professional Diploma Courses</p>
-            <p>UGC Entitled Online Programs(BBA, BCA, MCA ,MBA)</p>
-          
+          <p>Advance Certifications</p>
+          <p>Certified Professional Diploma Courses</p>
+          <p>UGC Entitled Online Programs(BBA, BCA, MCA ,MBA)</p>
         </div>
         <div className="demo-right">
           <div className="formStyle">
