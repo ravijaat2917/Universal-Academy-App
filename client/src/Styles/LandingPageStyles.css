@@ -1,0 +1,146 @@
+.UaLogo {
+  height: 120px;
+}
+
+.MainHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Header1 {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+.Header2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.Header2 h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  padding-right: 22px;
+  padding-top: 40px;
+}
+
+nav button {
+  border: none;
+  width: fit-content;
+  padding-left: 30px;
+  background-color: white;
+}
+
+.smallScreenWidget {
+  display: none;
+}
+
+.demo-left {
+  color: white;
+  font-size: 30px;
+  text-align: start;
+  font-weight: bolder;
+  padding: 0px;
+  margin: 0px;
+  text-shadow: 12px;
+}
+.demo-part {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.demo-left {
+    padding-top: 40px;
+  padding-left: 10px;
+}
+.demo-right {
+  padding: 30px;
+}
+
+.formStyle {
+  background-color: white;
+  padding: 35px 30px 30px;
+  border-radius: 12px;
+}
+
+inpMyFormItemGrouput{
+    margin-bottom: 10px !important;
+}
+form button{
+  width: 100%;margin-top: 10px !important;
+}
+@media screen and (max-width: 768px) {
+  .UaLogo {
+    height: 125px;
+  }
+
+  .MainHeader {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Header1 {
+    flex-direction: row;
+  }
+
+  .Header2 {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+
+  .Header2 h2 {
+    text-align: center;
+    padding-top: 30px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding-right: 22px;
+  }
+  nav button {
+    border: none;
+    width: fit-content;
+    background-color: white;
+  }
+
+  .smallScreenWidget {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    height: 30px;
+    padding: 0px 30px;
+    font-weight: bolder;
+    font-size: larger;
+  }
+  .smallScreenWidget i {
+    padding-top: 0px;
+    margin-top: 0px;
+    font-weight: bolder;
+    font-size: larger;
+    margin-bottom: 10px;
+  }
+
+  .ButtonsSection {
+    display: none;
+  }
+  .demo-part {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .demo-left {
+    color: white;
+    font-size: 16px;
+    text-align: start;
+    font-weight: bolder;
+    margin: 0px;text-shadow: 0px;
+  }
+  .demo-left p {
+    padding: 30px 15px;
+    line-height: 15px;
+    height: 36px;
+  }
+}
