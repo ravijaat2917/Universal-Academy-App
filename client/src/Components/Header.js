@@ -7,8 +7,8 @@ const Header = () => {
       <div className="contactsLinks">
         <a href="tel:9991976174">Call us : 9991976174</a>{" "}
         <span className="contACTAdIV">|</span>{" "}
-        <a href="mailto: ravijaat2917@gmail.com">
-          Email us : ravijaat2917@gmail.com
+        <a href="mailto: learnuniq@gmail.com">
+          Email us : learnuniq@gmail.com
         </a>
       </div>
       <div style={{color: 'white',}} className="SocialMedia">

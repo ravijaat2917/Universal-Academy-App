@@ -13,7 +13,7 @@ const Footer = () => {
             <br />
             Phone: 09991976174
             <br />
-            Email: universalAcademy@gmail.com
+            Email: learnuniq@gmail.com
           </p>
           <a style={{ fontSize: "14px" }} href="https://wa.me/8814882204">
             {" "}
