@@ -183,7 +183,7 @@ function LandingPages() {
               <br /> Certification For IT Courses
             </p>
             <p className="slogan-content">
-              NetTech India offers training on Cisco Certification programs like
+              Universal Academy offers training on Cisco Certification programs like
               CCNA, CCNP, CCIE (All Track), Juniper, Microsoft, Linux, Firewall,
               VMware, Industrial Automation, Automation-RPA, Telecomm Engineer,
               C, C++, Java, Android, Dot Net, Oracle, Hadoop, Web Programing,

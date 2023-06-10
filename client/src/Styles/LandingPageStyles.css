@@ -179,7 +179,7 @@ h3 {
 .course-image:hover{
   transform: translateY(-10px);
   cursor: pointer;
-  zoom: 101%;
+  zoom: 99.5%;
 
 }
 @media screen and (max-width: 768px) {
