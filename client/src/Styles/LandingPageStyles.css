@@ -342,4 +342,7 @@ h3 {
     flex-direction: column;
   
   }
+  .miniScreesn{
+    padding-top: 120px !important;
+  }
 }

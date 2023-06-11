@@ -145,7 +145,7 @@ function LandingPages() {
           </p>
         </div>
 
-        <div className="d-flex   justify-column">
+        <div className="d-flex miniScreesn  justify-column">
           <div className="detauils">
             <i class=" details-icons fa-solid fa-bullseye"></i>
             <h5>Live projects</h5>
