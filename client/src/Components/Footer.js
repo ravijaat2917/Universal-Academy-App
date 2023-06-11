@@ -15,7 +15,7 @@ const Footer = () => {
             <br />
             Email: learnuniq@gmail.com
           </p>
-          <a style={{ fontSize: "14px" }} href="https://wa.me/9991976174">
+          <a style={{ fontSize: "14px" , color:'blue' }} href="https://wa.me/9991976174">
             {" "}
             Message Us on <i class="fa-brands fa-whatsapp"></i>
           </a>
