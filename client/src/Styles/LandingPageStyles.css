@@ -186,7 +186,10 @@ h3 {
   zoom: 99.5%;
 
 }
-
+.details-icons:hover{
+  transform: translateY(-10px);
+  cursor: pointer;
+}
 /* For mobile Screen */
 @media screen and (max-width: 768px) {
   .UaLogo {
@@ -344,5 +347,8 @@ h3 {
   }
   .miniScreesn{
     padding-top: 120px !important;
+  }
+  .details-icons:hover{
+    transform: translateY(-10px);
   }
 }
