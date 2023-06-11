@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f5675fe6.css",
+    "main.js": "/static/js/main.e4af37da.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/SapImage.jpg": "/static/media/SapImage.d8e17ddcadb78954547f.jpg",
+    "static/media/LandingPageImage1.png": "/static/media/LandingPageImage1.a082876fb9349761463d.png",
+    "static/media/cybersecurityImage.jpeg": "/static/media/cybersecurityImage.19ecd339d605b7e592ec.jpeg",
+    "static/media/ua-logo.png": "/static/media/ua-logo.1f27cafdce8aad1da934.png",
+    "static/media/c++.jpg": "/static/media/c++.6618933cd9772bb9b376.jpg",
+    "static/media/NetImage.png": "/static/media/NetImage.ddb2959836b7f99a65c8.png",
+    "static/media/PythonImage.jpg": "/static/media/PythonImage.66f55ef9b6e553c72889.jpg",
+    "static/media/ADCA.jpg": "/static/media/ADCA.cd75e8223fd57e75a677.jpg",
+    "static/media/EthicalHacking.webp": "/static/media/EthicalHacking.9f8d43d6b6197fe6d41a.webp",
+    "static/media/ExcelImage.webp": "/static/media/ExcelImage.fabbcbf6b7ab18e09a84.webp",
+    "static/media/BCC.webp": "/static/media/BCC.f87352905ddc582e93bb.webp",
+    "index.html": "/index.html",
+    "main.f5675fe6.css.map": "/static/css/main.f5675fe6.css.map",
+    "main.e4af37da.js.map": "/static/js/main.e4af37da.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5675fe6.css",
+    "static/js/main.e4af37da.js"
+  ]
+}

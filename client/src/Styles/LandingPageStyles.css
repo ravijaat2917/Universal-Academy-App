@@ -161,6 +161,9 @@ h3 {
   justify-content: center;
 
 }
+.course:hover{
+  border-bottom: 2px solid grey;
+}
 .course{
   margin: 20px !important;
 }
@@ -168,6 +171,7 @@ h3 {
   height: 150px;
   width: 200px;
   border: solid 1px black;
+  overflow: hidden;
 }
 .course-name{
   font-size: large;
@@ -177,11 +181,13 @@ h3 {
 }
 
 .course-image:hover{
-  transform: translateY(-10px);
+  transform: translateY(-6px);
   cursor: pointer;
   zoom: 99.5%;
 
 }
+
+/* For mobile Screen */
 @media screen and (max-width: 768px) {
   .UaLogo {
     height: 125px;
@@ -294,7 +300,6 @@ h3 {
     justify-content: center;
     flex-direction: column;
     margin: 0px !important;
-    padding-top: 120px !important;
   }
 
   .slogans {
@@ -328,6 +333,10 @@ h3 {
   }
   .course{
     margin: 20px !important;
+  }
+  .course-image{
+    height: 2-0px;
+    width:300px
   }
   .course-names-images{
     flex-direction: column;

@@ -72,6 +72,8 @@ function LandingPages() {
             <button>Placement</button>
             <button>Library</button>
             <button>Contact Us</button>
+            <button>LOGIN</button>
+
           </nav>
         </div>
       </div>
@@ -243,8 +245,8 @@ function LandingPages() {
           </div>
           <div />
         </div>
-        <div className="d-flex course-names-images">
-          <div className="course">
+        <div className="d-flex course-names-images" style={{padding:'0px' , margin:"0px"}}>
+          <div className="course"> 
             <img className="course-image" src={Excell} alt="CourseImage" />
             <p className="course-name">Advance Excel</p>
           </div>
