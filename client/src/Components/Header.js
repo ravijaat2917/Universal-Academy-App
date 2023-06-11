@@ -7,13 +7,13 @@ const Header = () => {
       <div className="contactsLinks">
         <a href="tel:9991976174">Call us : 9991976174</a>{" "}
         <span className="contACTAdIV">|</span>{" "}
-        <a href="mailto: learnuniq@gmail.com">
-          Email us : learnuniq@gmail.com
-        </a>
+        <a href="mailto: learnuniq@gmail.com">Email us : learnuniq@gmail.com</a>
       </div>
-      <div style={{color: 'white',}} className="SocialMedia">
+      <div style={{ color: "white" }} className="SocialMedia">
         <div className="socialMedialinks">
-          <i class="fa-brands fa-whatsapp"></i>
+          <a style={{ fontSize: "20px" }} href="https://wa.me/9991976174">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
           <i class="fa-brands fa-facebook-f"></i>
           <i class="fa-brands fa-twitter"></i>
           <i class="fa-brands fa-youtube"></i>
