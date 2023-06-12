@@ -2,18 +2,20 @@ import React from "react";
 import { Layout, Space } from "antd";
 import Header from "./Header";
 import Footer from "./Footer";
-import "./../index.css";
+import UALogo from "../ImagesAndLogos/ua-logo.png";
+import { useNavigate } from "react-router-dom";
+import "../Styles/LandingPageStyles.css";
 
 const { Content } = Layout;
 
 const contentStyle = {
   textAlign: "center",
-  minHeight: 120,
-  lineHeight: "120px",
+
   backgroundColor: "white",
 };
 
 const LAYOUT = ({ children }) => {
+  const navigate = useNavigate();
   return (
     <>
       <Space
@@ -26,6 +28,49 @@ const LAYOUT = ({ children }) => {
         <Layout>
           <div>
             <Header />
+          </div>
+          <div className="MainHeader">
+            <div className="Header2">
+              <img className="UaLogo" src={UALogo} alt="UA Logo" />
+              <div>
+                <h2>Universal Academy</h2>
+              </div>
+            </div>
+            <div className="smallScreenWidget">
+              <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-bars"></i>
+            </div>
+            <div>
+              <nav className="ButtonsSection">
+                <div className="navigation-buttons">
+                  <p
+                    onClick={() => {
+                      navigate("/");
+                    }}
+                  >
+                    Home
+                  </p>
+                </div>
+                <div className="navigation-buttons">
+                  <p
+                    onClick={() => {
+                      navigate("/courses");
+                    }}
+                  >
+                    Courses
+                  </p>
+                </div>
+                <div className="navigation-buttons">
+                  <p
+                    onClick={() => {
+                      navigate("/about");
+                    }}
+                  >
+                    About
+                  </p>
+                </div>
+              </nav>
+            </div>
           </div>
           <div>
             <Content style={contentStyle}>{children}</Content>

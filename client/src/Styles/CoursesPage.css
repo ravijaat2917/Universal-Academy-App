@@ -1,0 +1,92 @@
+.courses-styles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: azure;
+}
+.formStyle{
+    background-color: azure;
+
+}
+.courses-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around !important;
+}
+.single-course-section{
+    border: 1px solid grey;
+    border-radius: 20px;
+    height: 150px;
+    padding: 15px 45px;
+    margin: 20px 0px 10px !important;
+}
+.single-course-section img{
+    height: 120px !important;
+    width: 250px ;
+    border-radius: 12px !important;
+}
+.course-Image img{
+    width: 124px !important;
+    border-radius: 12px !important;
+}
+.course-Image{
+    width: 250px !important;
+}
+.course-details{
+    padding: 0px 30px;
+    text-align: left;
+}
+
+.course-name{
+    font-size: 25px;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400 !important;
+}
+
+@media screen and (max-width: 768px) {
+    .courses-styles{
+        flex-direction: column;
+    }    
+
+    .courses-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .single-course-section{
+        border: 1px solid grey;
+        width: 80%;
+        border-radius: 20px;
+        height: 210px;
+        /* padding: 10px; */
+        margin: 10px;
+        margin: 10px 10% !important;
+    }
+    .single-course-section img{
+        height: 80px !important;
+        width: 150px ;
+        border-radius: 12px !important;
+    }
+    .course-details{
+        padding: 0px 10px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .course-name{
+        font-size: 20px;
+        color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 400 !important;
+    }
+    .course-price{
+        flex-direction: row !important;
+        justify-content: center !important;
+        width: 100%;
+    }
+}

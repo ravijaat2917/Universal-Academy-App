@@ -3,9 +3,15 @@
 }
 
 .MainHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around !important;
+  background-color: white;
+}
+
+.contentStyle{
+  min-height: 120px;
+  line-height : 120px;
 }
 
 .Header1 {
@@ -23,19 +29,21 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: bold;
   padding-right: 22px;
-  padding-top: 40px;
+  padding-top: 40px !important;
 }
 
-.ButtonsSection{
+.ButtonsSection {
   border: none;
   width: fit-content;
-  background-color: white;
+  background-color: white !important;
   display: flex;
   flex-direction: row;
   justify-content: space-between !important;
+  text-align: center;
+  padding-top: 55px;
 }
 
-.navigation-buttons{
+.navigation-buttons {
   margin-left: 30px !important;
   cursor: pointer;
 }
@@ -164,36 +172,34 @@ h3 {
   padding-top: 30px;
 }
 
-.course-names-images{
+.course-names-images {
   justify-content: center;
-
 }
-.course:hover{
+.course:hover {
   border-bottom: 2px solid grey;
 }
-.course{
+.course {
   margin: 20px !important;
 }
-.course-image{
+.course-image {
   height: 150px;
   width: 200px;
   border: solid 1px black;
   overflow: hidden;
 }
-.course-name{
+.course-name {
   font-size: large;
   font-weight: 500;
   line-height: 60px;
   color: rgb(104, 114, 123);
 }
 
-.course-image:hover{
+.course-image:hover {
   transform: translateY(-6px);
   cursor: pointer;
   zoom: 99.5%;
-
 }
-.details-icons:hover{
+.details-icons:hover {
   transform: translateY(-10px);
   cursor: pointer;
 }
@@ -205,7 +211,7 @@ h3 {
 
   .MainHeader {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .Header1 {
@@ -341,21 +347,20 @@ h3 {
     height: 250px;
     padding-top: 30px;
   }
-  .course{
+  .course {
     margin: 20px !important;
   }
-  .course-image{
+  .course-image {
     height: 2-0px;
-    width:300px
+    width: 300px;
   }
-  .course-names-images{
+  .course-names-images {
     flex-direction: column;
-  
   }
-  .miniScreesn{
+  .miniScreesn {
     padding-top: 120px !important;
   }
-  .details-icons:hover{
+  .details-icons:hover {
     transform: translateY(-10px);
   }
 }
