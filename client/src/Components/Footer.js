@@ -33,7 +33,7 @@ const Footer = () => {
           <a>Privacy Policy</a>
         </div>
       </div>
-      <p style={{ textAlign: "center" }}>
+      <p style={{ textAlign: "center" }} className="mb-3">
         Copyright © 2023 Universal Academy. All Rights Reserved | Crafted by ravijaat2917@gmail.com
       </p>
     </>

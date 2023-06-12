@@ -69,6 +69,42 @@ const LAYOUT = ({ children }) => {
                     About
                   </p>
                 </div>
+                {localStorage.getItem("token") ? (
+                  <div className="navigation-buttons">
+                    <p
+                      onClick={() => {
+                        localStorage.clear();
+                        navigate("/login");
+                      }}
+                    >
+                      LogOut
+                    </p>
+                  </div>
+                ) : (
+                  <div className="navigation-buttons">
+                    <p
+                      onClick={() => {
+                        navigate("/login");
+                      }}
+                    >
+                      Login
+                    </p>
+                  </div>
+                )}
+
+                {localStorage.getItem("token") ? (
+                  <div className="navigation-buttons">
+                    <p
+                      onClick={() => {
+                        navigate("/profile");
+                      }}
+                    >
+                      Profile
+                    </p>
+                  </div>
+                ) : (
+                  ""
+                )}
               </nav>
             </div>
           </div>
