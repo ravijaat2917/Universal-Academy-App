@@ -1,6 +1,7 @@
 import React from "react";
 import LAYOUT from "../Components/Layout";
-import { Input, Form, Button, Tabs } from "antd";
+import { Input, Form, Tabs , message } from "antd";
+import axios from 'axios';
 import "../Styles/CoursesPage.css";
 import {
   courses,
@@ -9,72 +10,56 @@ import {
 } from "../data/CoursesData.js";
 
 const Courses = () => {
-  const MyFormItemContext = React.createContext([]);
-  function toArr(str) {
-    return Array.isArray(str) ? str : [str];
-  }
-  const MyFormItemGroup = ({ prefix, children }) => {
-    const prefixPath = React.useContext(MyFormItemContext);
-    const concatPath = React.useMemo(
-      () => [...prefixPath, ...toArr(prefix)],
-      [prefixPath, prefix]
-    );
-    return (
-      <MyFormItemContext.Provider value={concatPath}>
-        {children}
-      </MyFormItemContext.Provider>
-    );
-  };
-  const MyFormItem = ({ name, ...props }) => {
-    const prefixPath = React.useContext(MyFormItemContext);
-    const concatName =
-      name !== undefined ? [...prefixPath, ...toArr(name)] : undefined;
-    return <Form.Item name={concatName} {...props} />;
+
+  const onFinishHandler = async (value) => {
+    // console.log(value);
+    try {
+      const res = await axios.post("api/v1/new-inquiry", value);
+      if (res.data.success) {
+        message.success(res.data.message);
+      } else {
+        message.error(" "+res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      message.error("Something went wrong");
+    }
   };
 
-  const onFinish = async (value) => {
-    console.log(value);
-  };
   return (
     <LAYOUT>
       <div className="d-flex courses-styles">
-        <div className="formStyle">
-          <h4
-            style={{
-              fontWeight: "20px",
-              paddingBottom: "20px",
-              textAlign: "center",
-            }}
-          >
-            Request For Demo Lecture
-          </h4>
-          <Form name="form_item_path" layout="vertical" onFinish={onFinish}>
-            <MyFormItemGroup prefix={["user"]}>
-              <MyFormItemGroup prefix={["name"]}>
-                <MyFormItem name="name" label="First Name" required>
-                  <Input />
-                </MyFormItem>
-                <MyFormItem name="email" label="Email" required>
-                  <Input />
-                </MyFormItem>
-                <MyFormItem name="phone" label="Contact Number" required>
-                  <Input />
-                </MyFormItem>
-                <MyFormItem name="course" label="Course">
-                  <Input />
-                </MyFormItem>
-              </MyFormItemGroup>
-            </MyFormItemGroup>
-
-            <Button
-              className="btn btn-primary"
-              type="primary"
-              htmlType="submit"
-            >
-              Submit
-            </Button>
-          </Form>
-        </div>
+      <div className="formStyle">
+              <h4
+                style={{
+                  fontWeight: "20px",
+                  paddingBottom: "20px",
+                  textAlign: "center",
+                }}
+              >
+                Request For Demo Lecture
+              </h4>
+              <Form
+                layout="vertical"
+                onFinish={onFinishHandler}
+              >
+                <Form.Item label="Name" name={"name"}>
+                  <Input type="text" required></Input>
+                </Form.Item>
+                <Form.Item label="Email" name={"email"}>
+                  <Input type="email" required></Input>
+                </Form.Item>
+                <Form.Item label="Contact Number" name={"phone"}>
+                  <Input type="text" required></Input>
+                </Form.Item>
+                <Form.Item label="Message" name={"message"}>
+                  <Input type="text" required></Input>
+                </Form.Item>
+                <button className="btn btn-primary mb-3" type="submit">
+                  Send
+                </button>
+              </Form>
+            </div>
 
         <div>
           <Tabs
