@@ -26,11 +26,18 @@
   padding-top: 40px;
 }
 
-nav button {
+.ButtonsSection{
   border: none;
   width: fit-content;
-  padding-left: 30px;
   background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+}
+
+.navigation-buttons{
+  margin-left: 30px !important;
+  cursor: pointer;
 }
 
 .smallScreenWidget {

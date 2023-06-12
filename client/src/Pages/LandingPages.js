@@ -3,6 +3,7 @@ import Layout from "../Components/Layout.js";
 import UALogo from "../ImagesAndLogos/ua-logo.png";
 import Image from "./../ImagesAndLogos/LandingPageImage1.png";
 import "../Styles/LandingPageStyles.css";
+import { useNavigate } from "react-router-dom";
 
 import ADCA from "../ImagesAndLogos/ADCA.jpg";
 import BCC from "../ImagesAndLogos/BCC.webp";
@@ -17,7 +18,31 @@ import Tally from "../ImagesAndLogos/TallyImage.png";
 
 import { Button, Form, Input } from "antd";
 
+import { Collapse } from "antd";
+
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+const items = [
+  {
+    key: "1",
+    label: "Courses",
+    backgroundColor: 'red',
+    color:'blue',
+    children: <p>{text}</p>,
+  },
+  {
+    key: "2",
+    label: "This is panel header with no arrow icon",
+    children: <p>{text}</p>,
+    showArrow: false,
+  },
+];
+
 function LandingPages() {
+  const navigate = useNavigate();
   const MyFormItemContext = React.createContext([]);
   function toArr(str) {
     return Array.isArray(str) ? str : [str];
@@ -45,6 +70,11 @@ function LandingPages() {
     console.log(value);
   };
 
+  // Collapse
+  const onChange = (key) => {
+    console.log(key);
+  };
+
   return (
     <Layout>
       <div className="MainHeader">
@@ -60,20 +90,19 @@ function LandingPages() {
         </div>
         <div>
           <nav className="ButtonsSection">
-            <button
-              onMouseEnter={() => {
-                console.log(`mouse Entered`);
-              }}
-            >
-              Home
-            </button>
-            <button>Courses</button>
-            <button>Diploma | Degree | PG</button>
-            <button>Placement</button>
-            <button>Library</button>
-            <button>Contact Us</button>
-            <button>LOGIN</button>
+            <div className="navigation-buttons">
+              <p>Home</p>
+            </div>
+            <div className="navigation-buttons">
+              <p>
 
+              <Collapse
+                defaultActiveKey={["1"]}
+                onChange={onChange}
+                items={items}
+                />
+                </p>
+            </div>
           </nav>
         </div>
       </div>
@@ -185,12 +214,13 @@ function LandingPages() {
               <br /> Certification For IT Courses
             </p>
             <p className="slogan-content">
-              Universal Academy offers training on Cisco Certification programs like
-              CCNA, CCNP, CCIE (All Track), Juniper, Microsoft, Linux, Firewall,
-              VMware, Industrial Automation, Automation-RPA, Telecomm Engineer,
-              C, C++, Java, Android, Dot Net, Oracle, Hadoop, Web Programing,
-              Web Design, Digital Marketing, DevOps. NetTech India is first
-              choice for Trainings on Cisco and Juniper IT certifications.
+              Universal Academy offers training on Cisco Certification programs
+              like CCNA, CCNP, CCIE (All Track), Juniper, Microsoft, Linux,
+              Firewall, VMware, Industrial Automation, Automation-RPA, Telecomm
+              Engineer, C, C++, Java, Android, Dot Net, Oracle, Hadoop, Web
+              Programing, Web Design, Digital Marketing, DevOps. NetTech India
+              is first choice for Trainings on Cisco and Juniper IT
+              certifications.
             </p>
             <h3>Rack Rental</h3>
             <p className="slogan-content2">
@@ -245,8 +275,11 @@ function LandingPages() {
           </div>
           <div />
         </div>
-        <div className="d-flex course-names-images" style={{padding:'0px' , margin:"0px"}}>
-          <div className="course"> 
+        <div
+          className="d-flex course-names-images"
+          style={{ padding: "0px", margin: "0px" }}
+        >
+          <div className="course">
             <img className="course-image" src={Excell} alt="CourseImage" />
             <p className="course-name">Advance Excel</p>
           </div>
