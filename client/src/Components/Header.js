@@ -11,7 +11,10 @@ const Header = () => {
       </div>
       <div style={{ color: "white" }} className="SocialMedia">
         <div className="socialMedialinks">
-          <a style={{ fontSize: "20px" }} href="https://wa.me/9991976174">
+          <a
+            style={{ fontSize: "20px" }}
+            href="https://wa.me/+919991976174?text=Hello Sir, I want to Inquiry About Course from your Universal Academy."
+          >
             <i class="fa-brands fa-whatsapp"></i>
           </a>
           <i class="fa-brands fa-facebook-f"></i>

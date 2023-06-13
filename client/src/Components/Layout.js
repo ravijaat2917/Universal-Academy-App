@@ -77,7 +77,7 @@ const LAYOUT = ({ children }) => {
                         navigate("/login");
                       }}
                     >
-                      LogOut
+                      Logout
                     </p>
                   </div>
                 ) : (

@@ -11,11 +11,14 @@ const Footer = () => {
             Ganpati Plaza, 1st floor, Nandrampur Bass Rd, Dharuhera, Haryana
             <br /> 123106
             <br />
-            Phone: 09991976174
+            Phone: (+91) 9991976174
             <br />
             Email: learnuniq@gmail.com
           </p>
-          <a style={{ fontSize: "14px" , color:'blue' }} href="https://wa.me/9991976174">
+          <a
+            style={{ fontSize: "14px", color: "blue" }}
+            href="https://wa.me/+919991976174?text=Hello Sir, I want to Inquiry About Course from your Universal Academy."
+          >
             {" "}
             Message Us on <i class="fa-brands fa-whatsapp"></i>
           </a>
@@ -34,7 +37,8 @@ const Footer = () => {
         </div>
       </div>
       <p style={{ textAlign: "center" }} className="mb-3">
-        Copyright © 2023 Universal Academy. All Rights Reserved | Crafted by ravijaat2917@gmail.com
+        Copyright © 2023 Universal Academy. All Rights Reserved | Crafted by
+        ravijaat2917@gmail.com
       </p>
     </>
   );
