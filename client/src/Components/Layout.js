@@ -36,10 +36,10 @@ const LAYOUT = ({ children }) => {
                 <h2>Universal Academy</h2>
               </div>
             </div>
-            <div className="smallScreenWidget">
+            {/* <div className="smallScreenWidget">
               <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
               <i class="fa-solid fa-bars"></i>
-            </div>
+            </div> */}
             <div>
               <nav className="ButtonsSection">
                 <div className="navigation-buttons">

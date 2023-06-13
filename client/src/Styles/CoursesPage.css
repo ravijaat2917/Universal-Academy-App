@@ -60,7 +60,7 @@
         border: 1px solid grey;
         width: 80%;
         border-radius: 20px;
-        height: 210px;
+        height: 230px;
         /* padding: 10px; */
         margin: 10px;
         margin: 10px 10% !important;
@@ -69,20 +69,24 @@
         height: 80px !important;
         width: 150px ;
         border-radius: 12px !important;
+        padding: 0px !important;
     }
     .course-details{
-        padding: 0px 10px;
+        padding: 0px 0px;
         text-align: left;
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
+        width: 100% !important;
     }
     .course-name{
         font-size: 20px;
+        line-height: 22px;
         color: black;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-weight: 400 !important;
+        width: 100% !important;
     }
     .course-price{
         flex-direction: row !important;

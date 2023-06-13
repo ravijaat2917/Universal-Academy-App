@@ -117,7 +117,7 @@ export const spokenEnglish = [
     },
     {
         name: "Spoken English Training",
-        fees: "16,00",
+        fees: "16,000",
         duration: "12 - Months",
         img: "https://www.thinkenglish.in/images/spoken-english-classes-chandigarh.jpg"
 
