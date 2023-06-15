@@ -1,5 +1,6 @@
 import Express from "express";
 import {
+  deleteAllReadCOntroller,
   deleteReadController,
   getReadInquiries,
   getUnreadInquiries,
@@ -25,5 +26,7 @@ router.delete("/delete/unread/:_id", deleteReadController);
 
 // AMrk All inquiries Read
 router.put("/mark/all/read", markAllReadCOntroller);
+
+router.delete('/delete/all/read', deleteAllReadCOntroller);
 
 export default router;

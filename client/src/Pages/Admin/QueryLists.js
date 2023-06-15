@@ -8,14 +8,12 @@ import { Modal } from "antd";
 const App = () => {
   const [modal1Open, setModal1Open] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
+  const [modal3Open, setModal3Open] = useState(false);
+
   const [readListID, setReadListID] = useState("");
-  const [listChanged, setListChanged] = useState('');
-  
+  const [listChanged, setListChanged] = useState("");
 
   const navigate = useNavigate();
-  const onChange = (key) => {
-    console.log(key);
-  };
   const [readList, setReadList] = useState([]);
   const [unreadList, setUnreadList] = useState([]);
 
@@ -40,42 +38,58 @@ const App = () => {
   };
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      setListChanged(generateString(4));
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+  useEffect(() => {
     getreadlists();
   }, [listChanged]);
   useEffect(() => {
     getUnreadlists();
   }, [listChanged]);
 
-  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-function generateString(length) {
-    let result = ' ';
+  function generateString(length) {
+    let result = " ";
     const charactersLength = characters.length;
-    for ( let i = 0; i < length; i++ ) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
 
     return result;
   }
-  
-  const handleMarkAllRead = async() => {
+
+  const handleMarkAllRead = async () => {
     setListChanged(generateString(4));
     try {
-      
-      const res = await axios.put('/api/v1/mark/all/read');
+      const res = await axios.put("/api/v1/mark/all/read");
       if (res.data.success) {
         message.success(res.data.message);
       } else {
-        message.error('Error in Updating');
+        message.error("Error in Updating");
       }
     } catch (error) {
       console.log(error);
-      message.error('Error in Updating');
+      message.error("Error in Updating");
     }
   };
-  const handleDeleteAllRead = () => {
+  const handleDeleteAllRead = async () => {
     setListChanged(generateString(4));
-
+    try {
+      const res = await axios.delete("/api/v1/delete/all/read");
+      if (res.data.success) {
+        message.success(res.data.message);
+      } else {
+        message.error("Error in Updating");
+      }
+    } catch (error) {
+      console.log(error);
+      message.error("Error in Updating");
+    }
   };
 
   const handleDeleteById = async () => {
@@ -219,10 +233,41 @@ function generateString(length) {
             <h6
               className="p-2 text-primary"
               style={{ cursor: "pointer" }}
-              onClick={handleMarkAllRead}
+              onClick={() => {
+                setModal3Open(true);
+              }}
             >
               {unreadList.length ? "Delete All Read" : "No Notifications"}
             </h6>
+            <Modal
+              title="This Action cannot be undone..."
+              centered
+              open={modal3Open}
+              onOk={() => () => {
+                setModal3Open(false);
+                handleDeleteAllRead();
+              }}
+              onCancel={() => setModal3Open(false)}
+              footer=<div style={{ margin: "30px 0px 10px" }}>
+                <button
+                  onClick={() => {
+                    setModal3Open(false);
+                  }}
+                  className="btn btn-secondary m-2"
+                >
+                  Close
+                </button>
+                <button
+                  onClick={() => {
+                    setModal3Open(false);
+                    handleDeleteAllRead();
+                  }}
+                  className="btn btn-danger m-2"
+                >
+                  Delete
+                </button>
+              </div>
+            ></Modal>
           </div>
 
           <div className="">

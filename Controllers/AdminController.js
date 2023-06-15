@@ -119,3 +119,13 @@ export const markAllReadCOntroller = async (req, res) => {
     res.status(500).send({ success: false });
   }
 }
+
+export const deleteAllReadCOntroller = async (req, res) => {
+  try {
+    await inquiryModel.deleteMany({isRead:true});
+    res.send({ success: true , message:'Deleted Successfully' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ success: false });
+  }
+}
