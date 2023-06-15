@@ -1,6 +1,6 @@
 import inquiryModel from "../Models/inquiryModel.js";
 import studentModel from "../Models/studentModel.js";
-import jsontoken from "jsonwebtoken";
+import jsontoken from 'jsonwebtoken';
 
 function capitalizeFirstLetter(str) {
   return str[0].toUpperCase() + str.slice(1);
