@@ -3,7 +3,7 @@ import axios from "axios";
 import { Tabs, message } from "antd";
 import { useNavigate } from "react-router-dom";
 import "../../Styles/AdminInquiryPage.css";
-import {  Modal } from "antd";
+import { Modal } from "antd";
 
 const App = () => {
   const [modal1Open, setModal1Open] = useState(false);

@@ -19,7 +19,6 @@ import axios from "axios";
 import { Form, Input, message } from "antd";
 
 function LandingPages() {
-
   const onFinishHandler = async (value) => {
     // console.log(value);
     try {
@@ -27,7 +26,7 @@ function LandingPages() {
       if (res.data.success) {
         message.success(res.data.message);
       } else {
-        message.error(" "+res.data.message);
+        message.error(" " + res.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -64,10 +63,7 @@ function LandingPages() {
               >
                 Request For Demo Lecture
               </h4>
-              <Form
-                layout="vertical"
-                onFinish={onFinishHandler}
-              >
+              <Form layout="vertical" onFinish={onFinishHandler}>
                 <Form.Item label="Name" name={"name"}>
                   <Input type="text" required></Input>
                 </Form.Item>

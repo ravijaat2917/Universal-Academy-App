@@ -17,6 +17,7 @@ export const getReadInquiries = async (req, res) => {
       .send({ success: false, message: "Error in Getting Inquiries", error });
   }
 };
+
 export const getUnreadInquiries = async (req, res) => {
   try {
     const data = await inquiryModel.find({ isRead: false });
@@ -60,9 +61,7 @@ export const verifyAdminController = async (req, res) => {
     const { jwt } = req.body;
     const match = jsontoken.verify(jwt, process.env.JWT_SECRET);
     if (match) {
-      res
-        .status(200)
-        .send({ success: true, message: "Admin Authenticated" } );
+      res.status(200).send({ success: true, message: "Admin Authenticated" });
     } else {
       res
         .status(400)
@@ -80,8 +79,8 @@ export const markReadController = async (req, res) => {
   try {
     const { _id } = req.params;
     const data = await inquiryModel.findByIdAndUpdate(_id, {
-      isRead : true 
-    })
+      isRead: true,
+    });
     res.status(200).send({
       success: true,
       message: "Updated Successfully",

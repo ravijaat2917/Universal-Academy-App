@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AdminLayout from "../../Components/AdminLayout";
-import QueryList from "../../Pages/Admin/QueryLists";
+import AdminLayout from '../../Components/AdminLayout';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -25,10 +24,7 @@ const Dashboard = () => {
   return (
     <AdminLayout>
       {ok === true ? (
-        <>
-          <h3 className="text-center p-0">Queries For Inquiries</h3>
-          <QueryList />
-        </>
+        <h3 className="text-center p-0">Manage Students</h3>
       ) : (
         <div
           className="text-center"
@@ -41,7 +37,7 @@ const Dashboard = () => {
         >
           <div>
             <p style={{ fontSize: "32px", fontWeight: "500" }}>
-              Session Time Out Please Login Again
+            Session Time Out Please Login Again
             </p>
           </div>
           <div>

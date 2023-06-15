@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import AdminLayout from '../../Components/AdminLayout';
+import AdminLayout from "../../Components/AdminLayout";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Dashboard = () => {
         >
           <div>
             <p style={{ fontSize: "32px", fontWeight: "500" }}>
-              Unauthorised Admin Please Login
+              Session Time Out Please Login Again
             </p>
           </div>
           <div>

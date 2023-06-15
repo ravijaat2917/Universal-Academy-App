@@ -1,7 +1,7 @@
 import React from "react";
 import LAYOUT from "../Components/Layout";
-import { Input, Form, Tabs , message } from "antd";
-import axios from 'axios';
+import { Input, Form, Tabs, message } from "antd";
+import axios from "axios";
 import "../Styles/CoursesPage.css";
 import {
   courses,
@@ -10,7 +10,6 @@ import {
 } from "../data/CoursesData.js";
 
 const Courses = () => {
-
   const onFinishHandler = async (value) => {
     // console.log(value);
     try {
@@ -18,7 +17,7 @@ const Courses = () => {
       if (res.data.success) {
         message.success(res.data.message);
       } else {
-        message.error(" "+res.data.message);
+        message.error(" " + res.data.message);
       }
     } catch (error) {
       console.log(error);
@@ -29,37 +28,34 @@ const Courses = () => {
   return (
     <LAYOUT>
       <div className="d-flex courses-styles">
-      <div className="formStyle">
-              <h4
-                style={{
-                  fontWeight: "20px",
-                  paddingBottom: "20px",
-                  textAlign: "center",
-                }}
-              >
-                Request For Demo Lecture
-              </h4>
-              <Form
-                layout="vertical"
-                onFinish={onFinishHandler}
-              >
-                <Form.Item label="Name" name={"name"}>
-                  <Input type="text" required></Input>
-                </Form.Item>
-                <Form.Item label="Email" name={"email"}>
-                  <Input type="email" required></Input>
-                </Form.Item>
-                <Form.Item label="Contact Number" name={"phone"}>
-                  <Input type="text" required></Input>
-                </Form.Item>
-                <Form.Item label="Course" name={"message"}>
-                  <Input type="text" required></Input>
-                </Form.Item>
-                <button className="btn btn-primary mb-3" type="submit">
-                  Send
-                </button>
-              </Form>
-            </div>
+        <div className="formStyle">
+          <h4
+            style={{
+              fontWeight: "20px",
+              paddingBottom: "20px",
+              textAlign: "center",
+            }}
+          >
+            Request For Demo Lecture
+          </h4>
+          <Form layout="vertical" onFinish={onFinishHandler}>
+            <Form.Item label="Name" name={"name"}>
+              <Input type="text" required></Input>
+            </Form.Item>
+            <Form.Item label="Email" name={"email"}>
+              <Input type="email" required></Input>
+            </Form.Item>
+            <Form.Item label="Contact Number" name={"phone"}>
+              <Input type="text" required></Input>
+            </Form.Item>
+            <Form.Item label="Course" name={"message"}>
+              <Input type="text" required></Input>
+            </Form.Item>
+            <button className="btn btn-primary mb-3" type="submit">
+              Send
+            </button>
+          </Form>
+        </div>
 
         <div>
           <Tabs
