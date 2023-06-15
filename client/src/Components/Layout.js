@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Space } from "antd";
 import Header from "./Header";
 import Footer from "./Footer";
 import UALogo from "../ImagesAndLogos/ua-logo.png";
 import { useNavigate } from "react-router-dom";
 import "../Styles/LandingPageStyles.css";
+import axios from "axios";
 
 const { Content } = Layout;
 
@@ -16,6 +17,21 @@ const contentStyle = {
 
 const LAYOUT = ({ children }) => {
   const navigate = useNavigate();
+  const [ok, setOk] = useState();
+  const autUser = async () => {
+    try {
+      const res = await axios.post("api/v1/verify/admin", {
+        jwt: localStorage.getItem("token"),
+      });
+      setOk(res.data.success);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    autUser();
+  }, [ok]);
   return (
     <>
       <Space
@@ -94,13 +110,23 @@ const LAYOUT = ({ children }) => {
 
                 {localStorage.getItem("token") ? (
                   <div className="navigation-buttons">
-                    <p
-                      onClick={() => {
-                        navigate("/profile");
-                      }}
-                    >
-                      Profile
-                    </p>
+                    {ok === true ? (
+                      <p
+                        onClick={() => {
+                          navigate("/dashboard");
+                        }}
+                      >
+                        Dashboard
+                      </p>
+                    ) : (
+                      <p
+                        onClick={() => {
+                          navigate("/profile");
+                        }}
+                      >
+                        Profile
+                      </p>
+                    )}
                   </div>
                 ) : (
                   ""

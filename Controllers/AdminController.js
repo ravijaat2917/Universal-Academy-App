@@ -1,13 +1,29 @@
 import inquiryModel from "../Models/inquiryModel.js";
 import studentModel from "../Models/studentModel.js";
+import jsontoken from "jsonwebtoken";
 
-export const getAllInquiries = async (req, res) => {
+export const getReadInquiries = async (req, res) => {
   try {
-    const inquiries = await inquiryModel.find({ isRead: false });
+    const data = await inquiryModel.find({ isRead: true });
     res.status(200).send({
       success: true,
       message: "Inquiries Getting Successfully",
-      inquiries,
+      data,
+    });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: "Error in Getting Inquiries", error });
+  }
+};
+export const getUnreadInquiries = async (req, res) => {
+  try {
+    const data = await inquiryModel.find({ isRead: false });
+    res.status(200).send({
+      success: true,
+      message: "Inquiries Getting Successfully",
+      data,
     });
   } catch (error) {
     console.log(error);
@@ -36,5 +52,61 @@ export const authController = async (req, res) => {
     res
       .status(500)
       .send({ success: false, message: "Authentication Error", error });
+  }
+};
+
+export const verifyAdminController = async (req, res) => {
+  try {
+    const { jwt } = req.body;
+    const match = jsontoken.verify(jwt, process.env.JWT_SECRET);
+    if (match) {
+      res
+        .status(200)
+        .send({ success: true, message: "Admin Authenticated" } );
+    } else {
+      res
+        .status(400)
+        .send({ success: false, message: "Admin Authenticated Error" });
+    }
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: "Error in Admin Verification" });
+  }
+};
+
+export const markReadController = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const data = await inquiryModel.findByIdAndUpdate(_id, {
+      isRead : true 
+    })
+    res.status(200).send({
+      success: true,
+      message: "Updated Successfully",
+      data,
+    });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: "Error in Updating Inquiry", error });
+  }
+};
+
+export const deleteReadController = async (req, res) => {
+  try {
+    const { _id } = req.params;
+    await inquiryModel.findByIdAndDelete(_id);
+    res.status(200).send({
+      success: true,
+      message: "Deleted Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: "Error in Updating Inquiry", error });
   }
 };

@@ -1,0 +1,70 @@
+.adminHeader{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 200px;
+    height: 120px !important;
+    text-align: center;
+}
+.adminHeader-name{
+    font-size: 30px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.manageButtons{
+    border: 1px solid white;
+    border-radius: 10px;
+    height: min-content;
+    padding: 10px !important;
+    line-height: 30px;
+    margin-left: 12px !important;
+    margin-top: 5px !important;
+    font-size: medium;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.manageButtons:hover{
+    background-color: white !important;
+    color: #001529;
+}
+@media screen and (max-width: 768px) {
+    .adminHeader{
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 0px;
+        line-height: 3px !important;
+        text-align: center;
+    }
+    .adminHeader-name{
+        padding-top: 20px !important;
+        font-size: 25px;
+        font-weight: 500;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-bottom: 15px !important;
+    }
+    
+    .manageButtons{
+        border: 1px solid white;
+        border-radius: 10px;
+        height: 40px;
+        /* padding: 5px !important; */
+        line-height: 15px;
+        margin:15px 8px 0px !important;
+        font-size: medium;
+        font-weight: 500;
+        cursor: pointer;
+        text-align: center !important;
+    }
+    Header{
+        height: 220px !important;
+    }
+    .adminHeaderButtons{
+        display: flex;
+        flex-direction: column !important;
+        justify-content: space-around !important;
+    }
+}

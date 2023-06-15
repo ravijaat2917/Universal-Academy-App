@@ -77,7 +77,7 @@ function LandingPages() {
                 <Form.Item label="Contact Number" name={"phone"}>
                   <Input type="text" required></Input>
                 </Form.Item>
-                <Form.Item label="Message" name={"message"}>
+                <Form.Item label="Course" name={"message"}>
                   <Input type="text" required></Input>
                 </Form.Item>
                 <button className="btn btn-primary mb-3" type="submit">

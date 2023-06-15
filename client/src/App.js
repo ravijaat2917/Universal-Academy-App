@@ -8,6 +8,7 @@ import Register from "./Pages/Register";
 import AboutPage from "./Pages/AboutPage";
 import AdminLogin from "./Pages/Admin/AdminLogin";
 import Dashboard from "./Pages/Admin/Dashboard";
+import StudentsPage from './Pages/Admin/Students';
 
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin-login" element={<AdminLogin />} />
-        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/students" element={<StudentsPage/>}/>
+        
       </Routes>
     </>
   );
