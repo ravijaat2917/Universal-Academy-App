@@ -1,6 +1,6 @@
 import inquiryModel from "../Models/inquiryModel.js";
 import studentModel from "../Models/studentModel.js";
-import jsontoken from 'jsonwebtoken';
+import jsontoken from "jsonwebtoken";
 
 function capitalizeFirstLetter(str) {
   return str[0].toUpperCase() + str.slice(1);
@@ -38,7 +38,7 @@ export const createNewInquiry = async (req, res) => {
 
 export const registerController = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
     const existingUser = await studentModel.findOne({ email: req.body.email });
     if (existingUser) {
       return res
@@ -49,6 +49,7 @@ export const registerController = async (req, res) => {
       name: capitalizeFirstLetter(name),
       email,
       password,
+      phone,
     });
     await newUser.save();
     return res
@@ -81,15 +82,13 @@ export const loginController = async (req, res) => {
     const token = jsontoken.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
-    res
-      .status(200)
-      .send({
-        success: true,
-        message: "Login Successfully",
-        token,
-        isAdmin: user.isAdmin,
-        user,
-      });
+    res.status(200).send({
+      success: true,
+      message: "Login Successfully",
+      token,
+      isAdmin: user.isAdmin,
+      user,
+    });
   } catch (error) {
     console.log(error);
     res.status(500).send({

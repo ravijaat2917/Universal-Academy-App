@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AdminLayout from "../../Components/AdminLayout";
+import StudentListsComponent from "../../Components/StudentListsComponent";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [ok, setOk] = useState();
   const autUser = async () => {
     try {
-      const res = await axios.post("api/v1/verify/admin", {
+      const res = await axios.post("/api/v1/verify/admin", {
         jwt: localStorage.getItem("token"),
       });
       setOk(res.data.success);
@@ -24,7 +25,12 @@ const Dashboard = () => {
   return (
     <AdminLayout>
       {ok === true ? (
-        <h3 className="text-center p-0">Manage Students</h3>
+        <>
+        <button onClick={()=> navigate('/add/student')} className="btn btn-primary">Add New Student</button>
+        <div style={{margin:'0px'}}>
+            <StudentListsComponent/>
+        </div>
+        </>
       ) : (
         <div
           className="text-center"

@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AdminLayout from "../../Components/AdminLayout";
-import QueryList from "../../Components/QueryLists";
+import AddNewStudentForm from "../../Components/AddNewStudentForm";
 
-const Dashboard = () => {
+const AddNewStudent = () => {
   const navigate = useNavigate();
-  const [ok, setOk] = useState();
+    const [ok, setOk] = useState(false);
+    
   const autUser = async () => {
     try {
       const res = await axios.post("/api/v1/verify/admin", {
         jwt: localStorage.getItem("token"),
       });
+        console.log(res.data.success);
       setOk(res.data.success);
     } catch (error) {
       console.log(error);
@@ -25,9 +27,11 @@ const Dashboard = () => {
   return (
     <AdminLayout>
       {ok === true ? (
-        <>
-          <h3 className="text-center p-0">Queries For Inquiries</h3>
-          <QueryList />
+              <>
+                  <h4 className="text-center">Add New Student</h4>
+        <div style={{margin:'0px'}}>
+            <AddNewStudentForm/>
+        </div>
         </>
       ) : (
         <div
@@ -61,4 +65,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AddNewStudent;

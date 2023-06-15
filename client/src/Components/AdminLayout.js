@@ -49,8 +49,9 @@ const App = ({ children }) => {
         }}
       >
         <div
+          className="contentStyles"
           style={{
-            padding: 24,
+            padding: 0,
             minHeight: 380,
             background: colorBgContainer,
           }}

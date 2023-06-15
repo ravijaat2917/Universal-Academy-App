@@ -113,19 +113,31 @@ export const deleteReadController = async (req, res) => {
 export const markAllReadCOntroller = async (req, res) => {
   try {
     await inquiryModel.updateMany({ isRead: false }, { isRead: true });
-    res.send({ success: true , message:'Updated Successfully' });
+    res.send({ success: true, message: "Updated Successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).send({ success: false });
   }
-}
+};
 
 export const deleteAllReadCOntroller = async (req, res) => {
   try {
-    await inquiryModel.deleteMany({isRead:true});
-    res.send({ success: true , message:'Deleted Successfully' });
+    await inquiryModel.deleteMany({ isRead: true });
+    res.send({ success: true, message: "Deleted Successfully" });
   } catch (error) {
     console.log(error);
     res.status(500).send({ success: false });
   }
-}
+};
+
+export const getAllStudents = async (req, res) => {
+  try {
+    const data = await studentModel.find({ verified: true });
+    res
+      .status(200)
+      .send({ success: true, message: "Students Getting Successfully", data });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ success: false });
+  }
+};

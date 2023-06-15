@@ -8,8 +8,8 @@ import Register from "./Pages/Register";
 import AboutPage from "./Pages/AboutPage";
 import AdminLogin from "./Pages/Admin/AdminLogin";
 import Dashboard from "./Pages/Admin/Dashboard";
-import StudentsPage from './Pages/Admin/Students';
-
+import StudentsPage from "./Pages/Admin/Students";
+import AddNewStudent from "./Pages/Admin/AddNewStudent";
 
 function App() {
   return (
@@ -23,8 +23,8 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/students" element={<StudentsPage/>}/>
-        
+        <Route path="/students" element={<StudentsPage />} />
+        <Route path="/add/student" element={<AddNewStudent />} />
       </Routes>
     </>
   );

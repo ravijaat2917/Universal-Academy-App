@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Tabs, message } from "antd";
 import { useNavigate } from "react-router-dom";
-import "../../Styles/AdminInquiryPage.css";
+import "../Styles/AdminInquiryPage.css";
 import { Modal } from "antd";
 
 const App = () => {
