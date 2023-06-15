@@ -3,6 +3,7 @@ import {
   deleteReadController,
   getReadInquiries,
   getUnreadInquiries,
+  markAllReadCOntroller,
   markReadController,
   verifyAdminController,
 } from "../Controllers/AdminController.js";
@@ -21,5 +22,8 @@ router.put("/mark/read/:_id", markReadController);
 
 // delete query by ID
 router.delete("/delete/unread/:_id", deleteReadController);
+
+// AMrk All inquiries Read
+router.put("/mark/all/read", markAllReadCOntroller);
 
 export default router;

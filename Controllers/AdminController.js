@@ -109,3 +109,13 @@ export const deleteReadController = async (req, res) => {
       .send({ success: false, message: "Error in Updating Inquiry", error });
   }
 };
+
+export const markAllReadCOntroller = async (req, res) => {
+  try {
+    await inquiryModel.updateMany({ isRead: false }, { isRead: true });
+    res.send({ success: true , message:'Updated Successfully' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ success: false });
+  }
+}

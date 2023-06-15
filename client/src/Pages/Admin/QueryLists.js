@@ -9,6 +9,8 @@ const App = () => {
   const [modal1Open, setModal1Open] = useState(false);
   const [modal2Open, setModal2Open] = useState(false);
   const [readListID, setReadListID] = useState("");
+  const [listChanged, setListChanged] = useState('');
+  
 
   const navigate = useNavigate();
   const onChange = (key) => {
@@ -39,16 +41,48 @@ const App = () => {
 
   useEffect(() => {
     getreadlists();
+  }, [listChanged]);
+  useEffect(() => {
     getUnreadlists();
-  }, [readList, unreadList]);
+  }, [listChanged]);
 
-  const handleMarkAllRead = () => {};
-  const handleDeleteAllRead = () => {};
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+function generateString(length) {
+    let result = ' ';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+  }
+  
+  const handleMarkAllRead = async() => {
+    setListChanged(generateString(4));
+    try {
+      
+      const res = await axios.put('/api/v1/mark/all/read');
+      if (res.data.success) {
+        message.success(res.data.message);
+      } else {
+        message.error('Error in Updating');
+      }
+    } catch (error) {
+      console.log(error);
+      message.error('Error in Updating');
+    }
+  };
+  const handleDeleteAllRead = () => {
+    setListChanged(generateString(4));
+
+  };
 
   const handleDeleteById = async () => {
     const res = await axios.delete(`/api/v1/delete/unread/${readListID}`);
     if (res.data.success) {
       message.success(res.data.message);
+      setListChanged(generateString(4));
     }
   };
 
@@ -56,6 +90,7 @@ const App = () => {
     const res = await axios.put(`/api/v1/mark/read/${readListID}`);
     if (res.data.success) {
       message.success(res.data.message);
+      setListChanged(generateString(4));
     }
   };
   return (
@@ -186,7 +221,7 @@ const App = () => {
               style={{ cursor: "pointer" }}
               onClick={handleMarkAllRead}
             >
-              {unreadList.length ? "Mark All Read" : "No Notifications"}
+              {unreadList.length ? "Delete All Read" : "No Notifications"}
             </h6>
           </div>
 

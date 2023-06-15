@@ -87,29 +87,6 @@ const LAYOUT = ({ children }) => {
                 </div>
                 {localStorage.getItem("token") ? (
                   <div className="navigation-buttons">
-                    <p
-                      onClick={() => {
-                        localStorage.clear();
-                        navigate("/login");
-                      }}
-                    >
-                      Logout
-                    </p>
-                  </div>
-                ) : (
-                  <div className="navigation-buttons">
-                    <p
-                      onClick={() => {
-                        navigate("/login");
-                      }}
-                    >
-                      Login
-                    </p>
-                  </div>
-                )}
-
-                {localStorage.getItem("token") ? (
-                  <div className="navigation-buttons">
                     {ok === true ? (
                       <p
                         onClick={() => {
@@ -130,6 +107,29 @@ const LAYOUT = ({ children }) => {
                   </div>
                 ) : (
                   ""
+                )}
+
+                {localStorage.getItem("token") ? (
+                  <div className="navigation-buttons">
+                    <p
+                      onClick={() => {
+                        localStorage.clear();
+                        navigate("/login");
+                      }}
+                    >
+                      Logout
+                    </p>
+                  </div>
+                ) : (
+                  <div className="navigation-buttons">
+                    <p
+                      onClick={() => {
+                        navigate("/login");
+                      }}
+                    >
+                      Login
+                    </p>
+                  </div>
                 )}
               </nav>
             </div>
