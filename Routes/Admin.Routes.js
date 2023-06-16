@@ -3,8 +3,10 @@ import {
   addNewVerifiedStudentController,
   deleteAllReadCOntroller,
   deleteReadController,
+  deleteSingleStudent,
   getAllStudents,
   getReadInquiries,
+  getSingleStudentDetails,
   getUnreadInquiries,
   markAllReadCOntroller,
   markReadController,
@@ -37,5 +39,12 @@ router.get("/get/all/students", getAllStudents);
 
 // Add a verified Student
 router.post("/add/new/student", addNewVerifiedStudentController);
+
+// GEt Single Student
+router.get("/get/student/:id", getSingleStudentDetails);
+
+// Delete Single Student
+router.delete('/delete/student/:id', deleteSingleStudent);
+
 
 export default router;

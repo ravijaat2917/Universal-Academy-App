@@ -62,6 +62,9 @@ const AddNewStudentForm = () => {
                 <Option value="other">Other</Option>
               </Select>
             </Form.Item>
+            <Form.Item name={"course"} label="Course ">
+              <Input type="text" placeholder="Course" />
+            </Form.Item>
             <Form.Item>
               <Button type="primary" htmlType="submit">
                 Add Student

@@ -22,7 +22,7 @@ function LandingPages() {
   const onFinishHandler = async (value) => {
     // console.log(value);
     try {
-      const res = await axios.post("api/v1/new-inquiry", value);
+      const res = await axios.post("/api/v1/new-inquiry", value);
       if (res.data.success) {
         message.success(res.data.message);
       } else {

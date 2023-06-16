@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const studentSchema = new mongoose.Schema(
   {
+    registration: { type: String },
     name: {
       type: String,
       required: [true, "Name is Required"],
@@ -17,6 +18,7 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is Required"],
     },
+    course: { type: String },
     verified: { type: Boolean, default: false },
     isAdmin: {
       type: Boolean,

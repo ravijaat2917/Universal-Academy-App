@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [ok, setOk] = useState();
   const autUser = async () => {
     try {
-      const res = await axios.post("api/v1/verify/admin", {
+      const res = await axios.post("/api/v1/verify/admin", {
         jwt: localStorage.getItem("token"),
       });
       setOk(res.data.success);

@@ -10,6 +10,8 @@ import AdminLogin from "./Pages/Admin/AdminLogin";
 import Dashboard from "./Pages/Admin/Dashboard";
 import StudentsPage from "./Pages/Admin/Students";
 import AddNewStudent from "./Pages/Admin/AddNewStudent";
+import QRCodeGenerate from "./Components/QRCodeGenerate";
+import UpdateStudentDetails from "./Pages/Admin/UpdateStudentDetails";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/students" element={<StudentsPage />} />
         <Route path="/add/student" element={<AddNewStudent />} />
+        <Route path="/student/:id" element={<UpdateStudentDetails/>}/>
       </Routes>
     </>
   );

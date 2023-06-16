@@ -1,0 +1,24 @@
+.aboutUsFormPart{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0px 200px !important;
+    background-color: rgb(193, 215, 208);
+}
+.aboutAcademy{
+    font-size: 18px;
+    padding: 0px 290px !important;
+}
+
+@media screen and (max-width: 768px){
+    .aboutUsFormPart{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0px 50px !important;
+    }
+    .aboutAcademy{
+        font-size: 15px;
+        padding: 0px 10px !important;
+    }
+}

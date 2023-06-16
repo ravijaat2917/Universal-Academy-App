@@ -148,7 +148,7 @@ export const getAllStudents = async (req, res) => {
 
 export const addNewVerifiedStudentController = async (req, res) => {
   try {
-    var { name, email, phone, gender, guardian } = req.body;
+    var { name, email, phone, gender, guardian, course } = req.body;
 
     const existingEmail = await studentModel.findOne({ email });
     if (existingEmail) {
@@ -178,6 +178,7 @@ export const addNewVerifiedStudentController = async (req, res) => {
       guardian,
       password,
       verified,
+      course,
     });
     await student.save();
     res.status(200).send({ success: true, message: "Added Successfully" });
@@ -186,5 +187,31 @@ export const addNewVerifiedStudentController = async (req, res) => {
     res
       .status(500)
       .send({ success: false, message: "Error in Adding Student", error });
+  }
+};
+
+export const getSingleStudentDetails = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = await studentModel.findById(id);
+    res
+      .status(200)
+      .send({ success: true, message: "Details GEtting Successfully", data });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: true, message: "Error in getting Details", error });
+  }
+};
+
+export const deleteSingleStudent = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await studentModel.findByIdAndDelete(id);
+    res.status(202).send({ success: true, message: "Deleted Successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ success: false, message: "error in deleting" });
   }
 };
