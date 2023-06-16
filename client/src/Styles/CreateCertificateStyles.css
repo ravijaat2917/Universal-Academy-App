@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  padding: 15px;
+}
+.App .Meta {
+  flex-grow: 1;
+  padding: 15px;
+}
+.App .Meta button{
+    margin: 12px 0px !important;
+}
+
+.App .Meta input {
+  font-family: inherit;
+  padding: 5px;
+  margin-top: 10px !important;
+  width: 100%;
+  box-shadow: 0 0 2px black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.App #certificateWrapper {
+  box-shadow: 0 0 5px black;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.App #certificateWrapper certificateTamplate {
+  display: block;
+}
+
+.App #certificateWrapper .QRCode{
+    position: absolute;
+    top: 420px;
+    left: 280px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.App #certificateWrapper p {
+    font-weight: 500;
+    position: absolute;
+    top: 260px;
+    left: 65px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 22pt;
+    font-family: 'Merriweather', serif;
+/* font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif; */
+  }
+
+  .App #certificateWrapper span {
+    color: #274972;
+    font-weight: 700;
+    position: absolute;
+    top: 350px;
+    left: 68px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 30pt;
+    font-family: 'Merriweather', serif;
+/* font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif; */
+  }
