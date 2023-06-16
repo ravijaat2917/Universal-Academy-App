@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [form] = Form.useForm();
   const params = useParams();
   const [modal3Open, setModal3Open] = useState(false);
+  const [listChanged, setListChanged] = useState("");
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -18,19 +19,35 @@ const Dashboard = () => {
   const [guardian, setGuardian] = useState();
   const [gender, setGender] = useState();
   const [registeration, setRegisteration] = useState();
+  const [password, setPassword] = useState();
+
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  function generateString(length) {
+    let result = " ";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+
+    return result;
+  }
 
   const onFinish = async (values) => {
     try {
       const res = await axios.post(`/api/v1/update/student/${params.id}`, {
-        name : values.name,
-        email:values.email,
-        phone:values.phone,
-        course:values.course,
-        guardian:values.guardian,
-        gender:values.gender,
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        course: values.course,
+        guardian: values.guardian,
+        gender: values.gender,
+        registration: registeration,
       });
       if (res.data.success === true) {
         message.success(res.data.message);
+        setListChanged(generateString(4));
       } else {
         message.error(res.data.message);
       }
@@ -51,6 +68,7 @@ const Dashboard = () => {
         setGuardian(res.data.data.guardian);
         setCourse(res.data.data.course);
         setRegisteration(res.data.data.registration);
+        setPassword(res.data.data.password);
       } else {
         message.error("Something Went Wrong");
       }
@@ -66,6 +84,7 @@ const Dashboard = () => {
       if (res.data.success) {
         message.success("Deleted Successfully");
         navigate("/students");
+        setListChanged(generateString(4));
       } else {
         message.error(res.data.message);
       }
@@ -92,7 +111,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     getStudentDetails();
-  }, []);
+  }, [listChanged]);
   useEffect(() => {
     autUser();
   }, [ok]);
@@ -259,13 +278,13 @@ const Dashboard = () => {
             </div>
           ) : (
             <div id="UpdateStudentContent">
-              <h3 className="text-center p-0">Update Student Details</h3>
+              <h3 className="text-center ">Update Student Details</h3>
 
               <div
                 className="mt-3"
                 style={{ display: "flex", justifyContent: "center" }}
               >
-                <div className="card m-3 p-3" style={{ maxWidth: "500px" }}>
+                <div className="card mt-3 p-4" style={{ minWidth: "300px" ,maxWidth:'600px' ,width:'100%'}}>
                   <Form form={form} onFinish={onFinish} layout="vertical">
                     <Form.Item className="mt-3 " name={"name"} label="Name ">
                       <Input
@@ -329,6 +348,17 @@ const Dashboard = () => {
                         <Option value="Other">Other</Option>
                       </Select>
                     </Form.Item>
+                    <Form.Item
+                      className="mt-3"
+                      name={"password"}
+                      label="Password "
+                    >
+                      <Input
+                        defaultValue={password}
+                        type="text"
+                        placeholder="Password"
+                      />
+                    </Form.Item>
                     <Form.Item className="mt-3" name={"course"} label="Course ">
                       <Input
                         defaultValue={course}
@@ -379,13 +409,6 @@ const Dashboard = () => {
                       </button>
                     </div>
                   ></Modal>
-                  <p className="text-center pt-2" style={{ fontSize: "12px" }}>
-                    {" "}
-                    <b>Note </b>: This is protected by a password, which is the
-                    first four digits of student's Name and last four digits of
-                    registered mobile number, for example if name is Aditya and
-                    phone No. is ******1290 then password will be Adit1290.
-                  </p>
                 </div>
               </div>
             </div>

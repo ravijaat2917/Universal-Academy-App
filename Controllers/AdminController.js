@@ -199,7 +199,7 @@ export const addNewVerifiedStudentController = async (req, res) => {
 
 export const updateVerifiedStudentController = async (req, res) => {
   try {
-    var { name, email, phone, gender, guardian, course } = req.body;
+    var { name, email, phone, gender, guardian, course, password } = req.body;
     const { id } = req.params;
 
     const existingEmail = await studentModel.findOne({ email });
@@ -210,29 +210,15 @@ export const updateVerifiedStudentController = async (req, res) => {
       }
     }
 
-    name = capitalizeFirstLetter(name);
-    guardian = capitalizeFirstLetter(guardian);
-    var password;
-    var verified = true;
-    if (name.length >= 4) {
-      password = name.slice(0, 5) + phone.slice(phone.length - 4);
-    } else {
-      password = name.slice(0) + phone.slice(phone.length - 4);
-    }
-
-    await studentModel.findByIdAndUpdate(
-      { _id: id },
-      {
-        name,
-        email,
-        phone,
-        gender,
-        course,
-        guardian,
-        password,
-        verified,
-      }
-    );
+    await studentModel.findByIdAndUpdate(id, {
+      name: name,
+      email: email,
+      phone: phone,
+      gender: gender,
+      course: course,
+      guardian: guardian,
+      password: password,
+    });
     res.status(200).send({ success: true, message: "Updated Successfully" });
   } catch (error) {
     console.log(error);
