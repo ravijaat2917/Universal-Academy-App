@@ -57,9 +57,9 @@ const AddNewStudentForm = () => {
               ]}
             >
               <Select required placeholder="select your gender">
-                <Option value="male">Male</Option>
-                <Option value="female">Female</Option>
-                <Option value="other">Other</Option>
+                <Option value="Male">Male</Option>
+                <Option value="Female">Female</Option>
+                <Option value="Other">Other</Option>
               </Select>
             </Form.Item>
             <Form.Item name={"course"} label="Course ">
