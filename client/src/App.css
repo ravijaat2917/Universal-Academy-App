@@ -34,7 +34,18 @@
 .contentStyles{
     padding: 50px !important;
 }
+
 @media screen and (max-width: 768px) {
+    .formfontAdjuct span{
+        font-size: 15px !important;
+    }
+    .semicol{
+        display: none;
+    }
+    .justifyTextCenter{
+        text-align: center !important;
+        border: 1px solid grey;
+    }
     .contentStyles{
         padding: 0px !important;
         margin: 0px !important;

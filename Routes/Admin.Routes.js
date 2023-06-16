@@ -10,6 +10,7 @@ import {
   getUnreadInquiries,
   markAllReadCOntroller,
   markReadController,
+  updateVerifiedStudentController,
   verifyAdminController,
 } from "../Controllers/AdminController.js";
 
@@ -45,6 +46,8 @@ router.get("/get/student/:id", getSingleStudentDetails);
 
 // Delete Single Student
 router.delete('/delete/student/:id', deleteSingleStudent);
+
+router.post('/update/student/:id', updateVerifiedStudentController);
 
 
 export default router;

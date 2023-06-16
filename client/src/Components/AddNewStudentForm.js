@@ -45,7 +45,7 @@ const AddNewStudentForm = () => {
               <Input required type="text" placeholder="Enter your name" />
             </Form.Item>
             <Form.Item name={"phone"} label="Contact No. ">
-              <Input required type="phone" placeholder="Enter your name" />
+              <Input minLength={10} maxLength={10} required type="phone" placeholder="Enter your name" />
             </Form.Item>
             <Form.Item
               name="gender"

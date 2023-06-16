@@ -71,7 +71,7 @@ function LandingPages() {
                   <Input type="email" required></Input>
                 </Form.Item>
                 <Form.Item label="Contact Number" name={"phone"}>
-                  <Input type="text" required></Input>
+                  <Input minLength={10} maxLength={10} type="phone" required></Input>
                 </Form.Item>
                 <Form.Item label="Course" name={"message"}>
                   <Input type="text" required></Input>

@@ -136,7 +136,7 @@ export const deleteAllReadCOntroller = async (req, res) => {
 
 export const getAllStudents = async (req, res) => {
   try {
-    const data = await studentModel.find({ verified: true });
+    const data = await studentModel.find({ verified: true }).sort({ name: 1 });
     res
       .status(200)
       .send({ success: true, message: "Students Getting Successfully", data });
@@ -162,6 +162,7 @@ export const addNewVerifiedStudentController = async (req, res) => {
     }
 
     name = capitalizeFirstLetter(name);
+    guardian = capitalizeFirstLetter(guardian);
     var password;
     var verified = true;
     if (name.length >= 4) {
@@ -170,10 +171,16 @@ export const addNewVerifiedStudentController = async (req, res) => {
       password = name.slice(0) + phone.slice(phone.length - 4);
     }
 
+    const genUID = () => {
+      return Date.now().toString();
+    };
+
+    const registration = genUID();
     const student = new studentModel({
       name,
       phone,
       email,
+      registration,
       gender,
       guardian,
       password,
@@ -187,6 +194,51 @@ export const addNewVerifiedStudentController = async (req, res) => {
     res
       .status(500)
       .send({ success: false, message: "Error in Adding Student", error });
+  }
+};
+
+export const updateVerifiedStudentController = async (req, res) => {
+  try {
+    var { name, email, phone, gender, guardian, course } = req.body;
+    const { id } = req.params;
+
+    const existingEmail = await studentModel.findOne({ email });
+    if (existingEmail) {
+      if (existingEmail.verified === true) {
+      } else {
+        await studentModel.findOneAndDelete({ email });
+      }
+    }
+
+    name = capitalizeFirstLetter(name);
+    guardian = capitalizeFirstLetter(guardian);
+    var password;
+    var verified = true;
+    if (name.length >= 4) {
+      password = name.slice(0, 5) + phone.slice(phone.length - 4);
+    } else {
+      password = name.slice(0) + phone.slice(phone.length - 4);
+    }
+
+    await studentModel.findByIdAndUpdate(
+      { _id: id },
+      {
+        name,
+        email,
+        phone,
+        gender,
+        course,
+        guardian,
+        password,
+        verified,
+      }
+    );
+    res.status(200).send({ success: true, message: "Updated Successfully" });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: "Error in Updating Student", error });
   }
 };
 

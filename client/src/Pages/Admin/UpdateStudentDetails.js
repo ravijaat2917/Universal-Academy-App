@@ -17,11 +17,17 @@ const Dashboard = () => {
   const [course, setCourse] = useState();
   const [guardian, setGuardian] = useState();
   const [gender, setGender] = useState();
+  const [registeration, setRegisteration] = useState();
 
   const onFinish = async (values) => {
     try {
-      const res = await axios.post("/api/v1/add/new/student", {
-        ...values,
+      const res = await axios.post(`/api/v1/update/student/${params.id}`, {
+        name : values.name,
+        email:values.email,
+        phone:values.phone,
+        course:values.course,
+        guardian:values.guardian,
+        gender:values.gender,
       });
       if (res.data.success === true) {
         message.success(res.data.message);
@@ -30,7 +36,7 @@ const Dashboard = () => {
       }
       // console.log("Received values of form: ", values);
     } catch (error) {
-      message.error("Email Already Exists");
+      message.error("Error in Updating");
     }
   };
 
@@ -44,6 +50,7 @@ const Dashboard = () => {
         setPhone(res.data.data.phone);
         setGuardian(res.data.data.guardian);
         setCourse(res.data.data.course);
+        setRegisteration(res.data.data.registration);
       } else {
         message.error("Something Went Wrong");
       }
@@ -111,13 +118,34 @@ const Dashboard = () => {
               <h3 className="text-center p-0">Student Profile</h3>
 
               <div
-                className="mt-3"
+                className="mt-3 formfontAdjuct"
                 style={{ display: "flex", justifyContent: "center" }}
               >
-                <div
-                  className="card m-3 p-3"
-                  style={{ minWidth: "450px", maxWidth: "500px" }}
-                >
+                <div className="card m-3 p-3" style={{ minWidth: "350px" }}>
+                  <span
+                    style={{
+                      width: "100%",
+                      fontSize: "18px",
+                      fontFamily: "monospace",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    <div
+                      className="d-flex justifyTextCenter"
+                      style={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p style={{ minWidth: "140px" }}>
+                        <b>Regn No. </b>
+                      </p>
+                      <p className="semicol">:</p>
+                      <p className="mb-2" style={{ minWidth: "140px" }}>
+                        {registeration}
+                      </p>
+                    </div>
+                  </span>
                   <span
                     style={{
                       fontSize: "18px",
@@ -125,22 +153,106 @@ const Dashboard = () => {
                       marginBottom: "15px",
                     }}
                   >
-                    <b>Name </b>: {name}
+                    <div
+                      className="d-flex justifyTextCenter"
+                      style={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p style={{ minWidth: "140px" }}>
+                        <b>Name </b>
+                      </p>
+                      <p className="semicol">:</p>
+                      <p className="mb-2" style={{ minWidth: "140px" }}>
+                        {name}
+                      </p>
+                    </div>
                   </span>
                   <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <b>Guardian' Name </b>: {guardian}
+                    <div
+                      className="d-flex justifyTextCenter"
+                      style={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p style={{ minWidth: "140px" }}>
+                        <b>Guardian Name </b>
+                      </p>
+                      <p className="semicol">:</p>
+                      <p className="mb-2" style={{ minWidth: "140px" }}>
+                        {guardian}
+                      </p>
+                    </div>
                   </span>
                   <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <b>Email </b>: {email}
+                    <div
+                      className="d-flex justifyTextCenter"
+                      style={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p style={{ minWidth: "140px" }}>
+                        <b>Email </b>
+                      </p>
+                      <p className="semicol">:</p>
+                      <p className="mb-2" style={{ minWidth: "140px" }}>
+                        {email}
+                      </p>
+                    </div>
                   </span>
                   <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <b>Contact No. </b>: {phone}
+                    <div
+                      className="d-flex justifyTextCenter"
+                      style={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p style={{ minWidth: "140px" }}>
+                        <b>Contact No. </b>
+                      </p>
+                      <p className="semicol">:</p>
+                      <p className="mb-2" style={{ minWidth: "140px" }}>
+                        {phone}
+                      </p>
+                    </div>
                   </span>
                   <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <b>Gender </b>: {gender}
+                    <div
+                      className="d-flex justifyTextCenter"
+                      style={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p style={{ minWidth: "140px" }}>
+                        <b>Gender</b>
+                      </p>
+                      <p className="semicol">:</p>
+                      <p className="mb-2" style={{ minWidth: "140px" }}>
+                        {gender}
+                      </p>
+                    </div>
                   </span>
                   <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <b>Course </b>: {course}
+                    <div
+                      className="d-flex justifyTextCenter"
+                      style={{
+                        justifyContent: "space-between",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p style={{ minWidth: "140px" }}>
+                        <b>Course </b>
+                      </p>
+                      <p className="semicol">:</p>
+                      <p className="mb-2" style={{ minWidth: "140px" }}>
+                        {course}
+                      </p>
+                    </div>
                   </span>
                 </div>
               </div>
@@ -155,7 +267,7 @@ const Dashboard = () => {
               >
                 <div className="card m-3 p-3" style={{ maxWidth: "500px" }}>
                   <Form form={form} onFinish={onFinish} layout="vertical">
-                    <Form.Item name={"name"} label="Name ">
+                    <Form.Item className="mt-3 " name={"name"} label="Name ">
                       <Input
                         defaultValue={name}
                         required
@@ -163,7 +275,11 @@ const Dashboard = () => {
                         placeholder="Enter your name"
                       />
                     </Form.Item>
-                    <Form.Item name={"guardian"} label="Guardian's Name ">
+                    <Form.Item
+                      className="mt-3"
+                      name={"guardian"}
+                      label="Guardian's Name "
+                    >
                       <Input
                         defaultValue={guardian}
                         required
@@ -171,7 +287,7 @@ const Dashboard = () => {
                         placeholder="Enter your Guardian's name"
                       />
                     </Form.Item>
-                    <Form.Item name={"email"} label="E-mail ">
+                    <Form.Item className="mt-3" name={"email"} label="E-mail ">
                       <Input
                         defaultValue={email}
                         required
@@ -179,15 +295,22 @@ const Dashboard = () => {
                         placeholder="Enter your name"
                       />
                     </Form.Item>
-                    <Form.Item name={"phone"} label="Contact No. ">
+                    <Form.Item
+                      className="mt-3"
+                      name={"phone"}
+                      label="Contact No. "
+                    >
                       <Input
+                        minLength={10}
+                        maxLength={10}
                         defaultValue={phone}
                         required
                         type="phone"
-                        placeholder="Enter your name"
+                        placeholder="Enter Contact Number"
                       />
                     </Form.Item>
                     <Form.Item
+                      className="mt-3"
                       name="gender"
                       label="Gender"
                       rules={[
@@ -201,19 +324,19 @@ const Dashboard = () => {
                         required
                         placeholder="select your gender"
                       >
-                        <Option value="male">Male</Option>
-                        <Option value="female">Female</Option>
-                        <Option value="other">Other</Option>
+                        <Option value="Male">Male</Option>
+                        <Option value="Female">Female</Option>
+                        <Option value="Other">Other</Option>
                       </Select>
                     </Form.Item>
-                    <Form.Item name={"course"} label="Course ">
+                    <Form.Item className="mt-3" name={"course"} label="Course ">
                       <Input
                         defaultValue={course}
                         type="text"
                         placeholder="Course"
                       />
                     </Form.Item>
-                    <Form.Item>
+                    <Form.Item className="mt-3">
                       <Button type="primary" htmlType="submit">
                         Update
                       </Button>
