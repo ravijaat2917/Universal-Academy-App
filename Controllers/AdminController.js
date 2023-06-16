@@ -165,14 +165,14 @@ export const addNewVerifiedStudentController = async (req, res) => {
     guardian = capitalizeFirstLetter(guardian);
     var password;
     var verified = true;
-    if (name.length >= 4) {
-      password = name.slice(0, 5) + phone.slice(phone.length - 4);
+    if (name.length >= 3) {
+      password = name.slice(0, 4) + phone.slice(phone.length - 4);
     } else {
       password = name.slice(0) + phone.slice(phone.length - 4);
     }
 
     const genUID = () => {
-      return Date.now().toString();
+      return Date.now().toString().slice(0,10);
     };
 
     const registration = genUID();
