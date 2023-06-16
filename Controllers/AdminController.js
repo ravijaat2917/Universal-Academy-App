@@ -2,6 +2,10 @@ import inquiryModel from "../Models/inquiryModel.js";
 import studentModel from "../Models/studentModel.js";
 import jsontoken from "jsonwebtoken";
 
+function capitalizeFirstLetter(str) {
+  return str[0].toUpperCase() + str.slice(1);
+}
+
 export const getReadInquiries = async (req, res) => {
   try {
     const data = await inquiryModel.find({ isRead: true });
@@ -139,5 +143,48 @@ export const getAllStudents = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({ success: false });
+  }
+};
+
+export const addNewVerifiedStudentController = async (req, res) => {
+  try {
+    var { name, email, phone, gender, guardian } = req.body;
+
+    const existingEmail = await studentModel.findOne({ email });
+    if (existingEmail) {
+      if (existingEmail.verified === true) {
+        return res
+          .status(200)
+          .send({ success: false, message: "Email Already Exists" });
+      } else {
+        await studentModel.findOneAndDelete({ email });
+      }
+    }
+
+    name = capitalizeFirstLetter(name);
+    var password;
+    var verified = true;
+    if (name.length >= 4) {
+      password = name.slice(0, 5) + phone.slice(phone.length - 4);
+    } else {
+      password = name.slice(0) + phone.slice(phone.length - 4);
+    }
+
+    const student = new studentModel({
+      name,
+      phone,
+      email,
+      gender,
+      guardian,
+      password,
+      verified,
+    });
+    await student.save();
+    res.status(200).send({ success: true, message: "Added Successfully" });
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ success: false, message: "Error in Adding Student", error });
   }
 };

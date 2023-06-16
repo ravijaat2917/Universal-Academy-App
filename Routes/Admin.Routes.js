@@ -1,5 +1,6 @@
 import Express from "express";
 import {
+  addNewVerifiedStudentController,
   deleteAllReadCOntroller,
   deleteReadController,
   getAllStudents,
@@ -29,9 +30,12 @@ router.delete("/delete/unread/:_id", deleteReadController);
 router.put("/mark/all/read", markAllReadCOntroller);
 
 // Delete All Read Inquiries
-router.delete('/delete/all/read', deleteAllReadCOntroller);
+router.delete("/delete/all/read", deleteAllReadCOntroller);
 
 // Get All Students
-router.get('/get/all/students', getAllStudents);
+router.get("/get/all/students", getAllStudents);
+
+// Add a verified Student
+router.post("/add/new/student", addNewVerifiedStudentController);
 
 export default router;

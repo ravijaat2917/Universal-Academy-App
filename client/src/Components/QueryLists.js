@@ -40,7 +40,7 @@ const App = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setListChanged(generateString(4));
-    }, 10000);
+    }, 15000);
     return () => clearInterval(interval);
   }, []);
   useEffect(() => {

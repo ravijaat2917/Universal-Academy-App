@@ -11,6 +11,7 @@ const studentSchema = new mongoose.Schema(
       type: String,
       required: [true, "Email is Required"],
     },
+    gender: { type: String },
     guardian: { type: String },
     password: {
       type: String,
