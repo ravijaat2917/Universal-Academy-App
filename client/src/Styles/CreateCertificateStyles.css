@@ -3,7 +3,9 @@
 }
 .App {
   display: flex;
+  flex-direction: column;
   padding: 15px;
+  justify-content: center;
 }
 .App .Meta {
   flex-grow: 1;
@@ -21,12 +23,16 @@
   box-shadow: 0 0 2px black;
   border: 2px solid black;
   border-radius: 5px;
+  margin: 10px !important;
 }
 .App #certificateWrapper {
   box-shadow: 0 0 5px black;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
 }
 .App #certificateWrapper certificateTamplate {
   display: block;
@@ -35,7 +41,7 @@
 .App #certificateWrapper .QRCode{
     position: absolute;
     top: 420px;
-    left: 280px;
+    left: 210px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -44,7 +50,7 @@
     font-weight: 500;
     position: absolute;
     top: 260px;
-    left: 65px;
+    left: 0px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -59,7 +65,7 @@ font-family: 'Poppins', sans-serif; */
     font-weight: 700;
     position: absolute;
     top: 350px;
-    left: 68px;
+    left: 0px;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -68,3 +74,15 @@ font-family: 'Poppins', sans-serif; */
 /* font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif; */
   }
+
+  .App #certificateWrapper .issueDate{
+    font-weight: 500;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 190px;
+    right: 215px;
+    width: 100%;
+    padding: 0px !important;
+    margin: 0px !important;
+}

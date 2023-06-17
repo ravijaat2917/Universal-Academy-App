@@ -253,3 +253,38 @@ export const deleteSingleStudent = async (req, res) => {
     res.status(500).send({ success: false, message: "error in deleting" });
   }
 };
+
+
+export const  studentDetailsForCertificate = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const student = await studentModel.findById(id);
+    const data = {
+      name: student.name,
+      uid:student.registration,
+      course:student.course,
+      
+    }
+    res.status(200).send({success:true , message:"details Getting Successfully" , data})
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ success: false, message: "error in getting Student Details" });
+  }
+}
+
+export const uploadCertificateController = async (req, res) => {
+  try {
+    const { photo } = req.files;
+    const { id } = req.params;
+
+    const genUID = () => {
+      return Date.now().toString();
+    };
+    const c_id = genUID();
+    const verificationLink = genUID();
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({success:false , message:'Error in uploading'})
+  }
+}

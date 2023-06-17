@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Select, message, Modal } from "antd";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams , Link } from "react-router-dom";
 import AdminLayout from "../../Components/AdminLayout";
 
 const { Option } = Select;
@@ -120,6 +120,7 @@ const Dashboard = () => {
     <AdminLayout>
       {ok === true ? (
         <>
+          <Link  className="m-3" to={`/students`}><button className="btn" style={{border:'1px solid black'}}><i class="fa-solid fa-arrow-left"></i></button></Link>
           <button
             onClick={() => setProfile("profile")}
             className="btn btn-info m-2"
@@ -131,6 +132,12 @@ const Dashboard = () => {
             className="btn btn-warning m-2"
           >
             Update
+          </button>
+          <button
+            onClick={() => { setProfile("profile");  navigate(`/certificates/${params.id}`)} }
+            className="btn btn-secondary m-2"
+          >
+            Certificates
           </button>
           {profile === "profile" ? (
             <div id="UpdateStudentContent">

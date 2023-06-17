@@ -10,7 +10,9 @@ import {
   getUnreadInquiries,
   markAllReadCOntroller,
   markReadController,
+  studentDetailsForCertificate,
   updateVerifiedStudentController,
+  uploadCertificateController,
   verifyAdminController,
 } from "../Controllers/AdminController.js";
 
@@ -45,9 +47,15 @@ router.post("/add/new/student", addNewVerifiedStudentController);
 router.get("/get/student/:id", getSingleStudentDetails);
 
 // Delete Single Student
-router.delete('/delete/student/:id', deleteSingleStudent);
+router.delete("/delete/student/:id", deleteSingleStudent);
 
-router.post('/update/student/:id', updateVerifiedStudentController);
+// Update Student by Id
+router.post("/update/student/:id", updateVerifiedStudentController);
 
+// details for certificate
+router.get("/certificate/details/:id", studentDetailsForCertificate);
+
+// save certificate to database
+router.post("/upload/student/certificate", uploadCertificateController);
 
 export default router;
