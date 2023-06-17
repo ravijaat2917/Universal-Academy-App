@@ -10,10 +10,9 @@ import AdminLogin from "./Pages/Admin/AdminLogin";
 import Dashboard from "./Pages/Admin/Dashboard";
 import StudentsPage from "./Pages/Admin/Students";
 import AddNewStudent from "./Pages/Admin/AddNewStudent";
-import CreateCertificate from "./Components/CreateCertificate";
 import UpdateStudentDetails from "./Pages/Admin/UpdateStudentDetails";
 import StudentsCertificates from "./Pages/Admin/StudentsCertificates";
-import CertificateHeaderContent from "./Components/CertificateHeaderContent";
+import CreateNewCertificate from "./Pages/Admin/CreateNewCertificate.js";
 
 function App() {
   return (
@@ -30,9 +29,11 @@ function App() {
         <Route path="/students" element={<StudentsPage />} />
         <Route path="/add/student" element={<AddNewStudent />} />
         <Route path="/student/:id" element={<UpdateStudentDetails />} />
-        <Route path="/create/certificate/:id" element={<CertificateHeaderContent />} />
-        <Route path="/certificates/:id" element={<StudentsCertificates/>}/>
-        
+        <Route
+          path="/create/certificate/:id"
+          element={<CreateNewCertificate />}
+        />
+        <Route path="/certificates/:id" element={<StudentsCertificates />} />
       </Routes>
     </>
   );

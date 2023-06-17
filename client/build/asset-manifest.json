@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.d306b12f.css",
-    "main.js": "/static/js/main.57681ab9.js",
+    "main.css": "/static/css/main.7cf474c7.css",
+    "main.js": "/static/js/main.10de2ff5.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/SapImage.jpg": "/static/media/SapImage.d8e17ddcadb78954547f.jpg",
     "static/media/LandingPageImage1.png": "/static/media/LandingPageImage1.a082876fb9349761463d.png",
+    "static/media/certificateTamplet.png": "/static/media/certificateTamplet.7853c06068fe2f046bb6.png",
     "static/media/cybersecurityImage.jpeg": "/static/media/cybersecurityImage.19ecd339d605b7e592ec.jpeg",
     "static/media/ua-logo.png": "/static/media/ua-logo.1f27cafdce8aad1da934.png",
     "static/media/c++.jpg": "/static/media/c++.6618933cd9772bb9b376.jpg",
@@ -15,12 +16,12 @@
     "static/media/ExcelImage.webp": "/static/media/ExcelImage.fabbcbf6b7ab18e09a84.webp",
     "static/media/BCC.webp": "/static/media/BCC.f87352905ddc582e93bb.webp",
     "index.html": "/index.html",
-    "main.d306b12f.css.map": "/static/css/main.d306b12f.css.map",
-    "main.57681ab9.js.map": "/static/js/main.57681ab9.js.map",
+    "main.7cf474c7.css.map": "/static/css/main.7cf474c7.css.map",
+    "main.10de2ff5.js.map": "/static/js/main.10de2ff5.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d306b12f.css",
-    "static/js/main.57681ab9.js"
+    "static/css/main.7cf474c7.css",
+    "static/js/main.10de2ff5.js"
   ]
 }
