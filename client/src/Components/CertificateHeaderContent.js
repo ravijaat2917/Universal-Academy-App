@@ -7,6 +7,7 @@ import CertificateTamplet from "../ImagesAndLogos/certificateTamplet.png";
 import { message } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import AdminLayout from "./AdminLayout";
 
 const CertificateHeaderContent = () => {
   const navigate = useNavigate();
@@ -19,8 +20,9 @@ const CertificateHeaderContent = () => {
   const [QrLink, setQrLink] = useState(
     "https://universal-academy.onrender.com/"
   );
+
   const [uid, setUid] = useState();
-  const [photo, setPhoto] = useState();
+  const [photo, setPhoto] = useState("");
 
   const autUser = async () => {
     try {
@@ -50,16 +52,28 @@ const CertificateHeaderContent = () => {
       message.error("Error in Getting Details");
     }
   };
-  const handleUploadCertificate = async () => {
+  const handleUploadCertificate = async (e) => {
     try {
-      const image = new FormData();
-      image.append("photo", photo);
-      const { data } = axios.post("/api/v1/upload/student/certificate", {image , id:params.id});
-      if (data.success) {
-        message.success("Certificate Upload Successfully");
-      } else {
-        message.error(data?.message);
-      }
+      const productData = new FormData();
+      const genUID = () => {
+        return Date.now().toString();
+      };
+      const certificateID = genUID();
+      const verificationLink = genUID();
+      const student = params.id;
+
+      productData.append("photo", photo);
+      productData.append("student", student);
+      productData.append("verificationLink", verificationLink);
+      productData.append("certificateID", certificateID);
+
+      const res = await axios.post(
+        "/api/v1/upload/student/certificate",
+        productData
+        );
+        if (res.data.success === true) {
+            message.success('Upload Successfully');
+        }
     } catch (error) {
       console.log(error);
       message.error("Error in Uploading");
@@ -70,9 +84,9 @@ const CertificateHeaderContent = () => {
   });
 
   return (
-    <>
+    <AdminLayout>
       {ok === true ? (
-        <>
+        <div className="App">
           <Link
             className="m-3"
             style={{ width: "fit-content" }}
@@ -178,7 +192,7 @@ const CertificateHeaderContent = () => {
               alt="Certificate Tamplet"
             ></img>
           </div>
-        </>
+        </div>
       ) : (
         <div
           className="text-center"
@@ -207,7 +221,7 @@ const CertificateHeaderContent = () => {
           </div>
         </div>
       )}
-    </>
+    </AdminLayout>
   );
 };
 

@@ -1,6 +1,8 @@
+import certificateModel from "../Models/certificateModel.js";
 import inquiryModel from "../Models/inquiryModel.js";
 import studentModel from "../Models/studentModel.js";
 import jsontoken from "jsonwebtoken";
+import fs from "fs";
 
 function capitalizeFirstLetter(str) {
   return str[0].toUpperCase() + str.slice(1);
@@ -172,7 +174,7 @@ export const addNewVerifiedStudentController = async (req, res) => {
     }
 
     const genUID = () => {
-      return Date.now().toString().slice(0,10);
+      return Date.now().toString().slice(0, 10);
     };
 
     const registration = genUID();
@@ -254,37 +256,40 @@ export const deleteSingleStudent = async (req, res) => {
   }
 };
 
-
-export const  studentDetailsForCertificate = async (req, res) => {
+export const studentDetailsForCertificate = async (req, res) => {
   try {
     const { id } = req.params;
     const student = await studentModel.findById(id);
     const data = {
       name: student.name,
-      uid:student.registration,
-      course:student.course,
-      
-    }
-    res.status(200).send({success:true , message:"details Getting Successfully" , data})
-
+      uid: student.registration,
+      course: student.course,
+    };
+    res
+      .status(200)
+      .send({ success: true, message: "details Getting Successfully", data });
   } catch (error) {
     console.log(error);
-    res.status(500).send({ success: false, message: "error in getting Student Details" });
+    res
+      .status(500)
+      .send({ success: false, message: "error in getting Student Details" });
   }
-}
+};
 
 export const uploadCertificateController = async (req, res) => {
   try {
     const { photo } = req.files;
-    const { id } = req.params;
+    const { certificateID, verificationLink, student } = req.fields;
 
-    const genUID = () => {
-      return Date.now().toString();
-    };
-    const c_id = genUID();
-    const verificationLink = genUID();
+    const c = new certificateModel({
+      certificateID , verificationLink , student
+    });
+    c.photo.data = fs.readFileSync(photo.path);
+    c.photo.contentType = photo.type;
+    await c.save();
+    res.status(201).send({ success: true, message: "Uploaded Successfully" });
   } catch (error) {
     console.log(error);
-    res.status(500).send({success:false , message:'Error in uploading'})
+    res.status(500).send({ success: false, message: "Error in uploading" });
   }
-}
+};

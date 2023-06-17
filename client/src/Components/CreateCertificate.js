@@ -6,11 +6,7 @@ import CertificateHeaderContent from "./CertificateHeaderContent";
 class createCertificate extends Component {
   render() {
     return (
-      <Layout>
-        <div className="App">
           <CertificateHeaderContent />
-        </div>
-      </Layout>
     );
   }
 }

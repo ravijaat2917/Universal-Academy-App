@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const certificateSchema = new mongoose.Schema(
   {
-    uid: {
+    certificateID: {
       type: String,
       required:true,
     },
@@ -10,14 +10,13 @@ const certificateSchema = new mongoose.Schema(
       type: mongoose.ObjectId,
       ref: "users",
       required: true,
-    },
-    photo: {
+    }, photo: {
       data: Buffer,
       contentType: String,
     },
     verificationLink: {
       type: String,
-      verified: true,
+      required: true,
     },
   },
   { timestamps: true }

@@ -15,6 +15,7 @@ import {
   uploadCertificateController,
   verifyAdminController,
 } from "../Controllers/AdminController.js";
+import formidable from "express-formidable";
 
 const router = Express.Router();
 
@@ -56,6 +57,6 @@ router.post("/update/student/:id", updateVerifiedStudentController);
 router.get("/certificate/details/:id", studentDetailsForCertificate);
 
 // save certificate to database
-router.post("/upload/student/certificate", uploadCertificateController);
+router.post("/upload/student/certificate",formidable(), uploadCertificateController);
 
 export default router;
