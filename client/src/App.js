@@ -13,6 +13,7 @@ import AddNewStudent from "./Pages/Admin/AddNewStudent";
 import UpdateStudentDetails from "./Pages/Admin/UpdateStudentDetails";
 import StudentsCertificates from "./Pages/Admin/StudentsCertificates";
 import CreateNewCertificate from "./Pages/Admin/CreateNewCertificate.js";
+import CertificateVerificationPage from "./Pages/CertificateVerificationPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           element={<CreateNewCertificate />}
         />
         <Route path="/certificates/:id" element={<StudentsCertificates />} />
+        <Route path="/verify/certificate/:id" element={<CertificateVerificationPage/>}/>
       </Routes>
     </>
   );

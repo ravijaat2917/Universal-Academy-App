@@ -18,11 +18,25 @@ const CertificateHeaderContent = () => {
   const [name, setName] = useState();
   const [course, setCourse] = useState();
   const [issueDate, setIssueDate] = useState(getCurrentDate());
-  const [QrLink, setQrLink] = useState(
-    "https://universal-academy.onrender.com/"
-  );
+  const [QrLink, setQrLink] = useState();
+  const [verificationLink, setVerificationLink] = useState();
+  const [certificateID, setCertificateID] = useState();
+
+  const genUID = () => {
+    return Date.now().toString();
+  };
+
+  const setVerificationLinkandUid = () => {
+    const CI = genUID();
+    setCertificateID(CI);
+    const link =
+      "https://universal-academy.onrender.com/verify/certificate/" + CI;
+    setVerificationLink(link);
+    setQrLink(link);
+  };
 
   const [uid, setUid] = useState();
+
   const [photo, setPhoto] = useState("");
 
   const autUser = async () => {
@@ -50,23 +64,20 @@ const CertificateHeaderContent = () => {
       }
     } catch (error) {
       console.log(error);
-      message.error("Error in Getting Details");
+      // message.error("Error in Getting Details");
     }
   };
   const handleUploadCertificate = async (e) => {
     try {
       const productData = new FormData();
-      const genUID = () => {
-        return Date.now().toString();
-      };
-      const certificateID = genUID();
-      const verificationLink = genUID();
-      const student = params.id;
+      // const verificationLink = `http://localhost:3000/verify/certificate/${genUID()}`;
 
+      const student = params.id;
       productData.append("photo", photo);
       productData.append("student", student);
       productData.append("verificationLink", verificationLink);
       productData.append("certificateID", certificateID);
+      productData.append("course", course);
 
       const res = await axios.post(
         "/api/v1/upload/student/certificate",
@@ -82,7 +93,10 @@ const CertificateHeaderContent = () => {
   };
   useEffect(() => {
     getUserDetailsForCertificate();
-  },[]);
+  }, []);
+  useEffect(() => {
+    setVerificationLinkandUid();
+  }, []);
 
   return (
     <AdminLayout>

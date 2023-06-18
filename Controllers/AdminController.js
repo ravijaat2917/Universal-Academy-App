@@ -279,10 +279,13 @@ export const studentDetailsForCertificate = async (req, res) => {
 export const uploadCertificateController = async (req, res) => {
   try {
     const { photo } = req.files;
-    const { certificateID, verificationLink, student } = req.fields;
+    const { certificateID, verificationLink, student  , course} = req.fields;
 
     const c = new certificateModel({
-      certificateID , verificationLink , student
+      certificateID,
+      verificationLink,
+      student,
+      course
     });
     c.photo.data = fs.readFileSync(photo.path);
     c.photo.contentType = photo.type;
@@ -291,5 +294,30 @@ export const uploadCertificateController = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).send({ success: false, message: "Error in uploading" });
+  }
+};
+
+export const getAllCertificatesController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const certificates = await certificateModel.find({ student: id }).select('-photo');
+    res.status(200).send({ success: true, mesage: "Certificate Fetched Successfully", certificates });
+  } catch (error) {
+    res
+      .status(500)
+      .send({ success: false, message: "Error in getting Certificate Image" });
+  }
+}
+
+export const getCertificateImageBinaryData = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const certificates = await certificateModel.find({ student: id }).select('photo');
+      res.set("Content-type", certificates.photo.contentType);
+      return res.status(200).send(certificates.photo.data);
+  } catch (error) {
+    res
+      .status(500)
+      .send({ success: false, message: "Error in getting Certificate Image" });
   }
 };

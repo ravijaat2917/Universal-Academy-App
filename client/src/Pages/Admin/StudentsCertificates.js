@@ -34,7 +34,7 @@ const StudentsCertificates = () => {
           >
             Add Certificate
           </button>
-          <h3 style={{ margin: "0px", textAlign: "center", padding: "0px" }}>
+          <h3 className="mt-4" style={{ margin: "40px", textAlign: "center", padding: "0px" }}>
             Student Certificates
           </h3>
           <DisplayStudentCertificates />

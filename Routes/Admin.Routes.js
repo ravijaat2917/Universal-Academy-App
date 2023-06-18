@@ -4,7 +4,9 @@ import {
   deleteAllReadCOntroller,
   deleteReadController,
   deleteSingleStudent,
+  getAllCertificatesController,
   getAllStudents,
+  getCertificateImageBinaryData,
   getReadInquiries,
   getSingleStudentDetails,
   getUnreadInquiries,
@@ -57,6 +59,12 @@ router.post("/update/student/:id", updateVerifiedStudentController);
 router.get("/certificate/details/:id", studentDetailsForCertificate);
 
 // save certificate to database
-router.post("/upload/student/certificate",formidable(), uploadCertificateController);
+router.post("/upload/student/certificate", formidable(), uploadCertificateController);
+
+// get all certificates
+router.get('/get/student/certificates/:id', getAllCertificatesController);
+
+// get single certificate image
+router.get('/certificate/image/:id', getCertificateImageBinaryData);
 
 export default router;
