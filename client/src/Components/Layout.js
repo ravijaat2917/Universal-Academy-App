@@ -17,13 +17,18 @@ const contentStyle = {
 
 const LAYOUT = ({ children }) => {
   const navigate = useNavigate();
-  const [ok, setOk] = useState();
+  const [ok, setOk] = useState(false);
   const autUser = async () => {
     try {
       const res = await axios.post("api/v1/verify/admin", {
         jwt: localStorage.getItem("token"),
       });
-      setOk(res.data.success);
+      if (res.data.admin === true) {
+        
+        setOk(true);
+      } else {
+        setOk(res.data.success);
+      }
     } catch (error) {
       console.log(error);
     }

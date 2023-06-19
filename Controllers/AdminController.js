@@ -67,7 +67,10 @@ export const verifyAdminController = async (req, res) => {
     const { jwt } = req.body;
     const match = jsontoken.verify(jwt, process.env.JWT_SECRET);
     if (match) {
-      res.status(200).send({ success: true, message: "Admin Authenticated" });
+      const id = match._id;
+      const admin = await studentModel.findById(id);
+
+      res.status(200).send({ success: true, message: "Admin Authenticated" , admin:admin.admin });
     } else {
       res
         .status(400)

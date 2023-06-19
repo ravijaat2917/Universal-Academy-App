@@ -10,6 +10,11 @@ export const courses = [
     fees: "2,000",
     duration: "3 - Months",
     img: "https://www.ngogroups.in/productImage/Advanced_Excel_by_LEXICON-1024x576-20200214120040.jpg",
+  },{
+    name: "BCC + Advance Excel",
+    fees: "4,500",
+    duration: "3 - Months",
+    img: "https://www.ngogroups.in/productImage/Advanced_Excel_by_LEXICON-1024x576-20200214120040.jpg",
   },
   {
     name: "DFA - Tally ERP-9 (Basic)",
@@ -103,6 +108,11 @@ export const jobOrientedCourses = [
 
 export const spokenEnglish = [
     {
+        name: "Spoken English Training",
+        fees: "5,500",
+        duration: "3 - Months",
+        img: "https://www.thinkenglish.in/images/spoken-english-classes-chandigarh.jpg"
+    },{
         name: "Spoken English Training",
         fees: "5,500",
         duration: "3 - Months",

@@ -140,13 +140,13 @@ function LandingPages() {
                 Linux, Firewall, VMware, Industrial Automation, Automation-RPA,
                 Telecomm Engineer, C, C++, Java, Android, Dot Net, Oracle,
                 Hadoop, Web Programing, Web Design, Digital Marketing, DevOps.
-                NetTech India is first choice for Trainings on Cisco and Juniper
+                Universal Academy is first choice for Trainings on Cisco and Juniper
                 IT certifications.
               </p>
               <h3>Rack Rental</h3>
               <p className="slogan-content2">
                 Dedicate racks available to each student. No fake image or fake
-                promises original rack setup and NetTech India is here for
+                promises original rack setup and Universal Academy is here for
                 making careers.
               </p>
               <p className="button">Read More</p>
