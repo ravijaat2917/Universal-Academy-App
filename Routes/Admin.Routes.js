@@ -2,6 +2,7 @@ import Express from "express";
 import {
   addNewVerifiedStudentController,
   deleteAllReadCOntroller,
+  deleteCertificateController,
   deleteReadController,
   deleteSingleStudent,
   getAllCertificatesController,
@@ -69,6 +70,8 @@ router.get('/get/student/certificates/:id', getAllCertificatesController);
 router.get('/certificate/image/:id', getCertificateImageBinaryData);
 
 router.get('/student/by/certificate/:id', getUserByCertificateID);
+
+router.delete('/delete/certificate/:id', deleteCertificateController);
 
 
 export default router;

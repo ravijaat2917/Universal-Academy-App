@@ -353,3 +353,15 @@ export const getUserByCertificateID = async (req, res) => {
       .send({ success: false, message: "eeror in getting student details" });
   }
 };
+
+export const deleteCertificateController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(id);
+    await certificateModel.findByIdAndDelete(id);
+    res.status(200).send({ success: true, message: "Deleted Successfully" });
+    
+  } catch (error) {
+    res.status(500).send({ success: false, message: 'Error in deleting' });
+  }
+}

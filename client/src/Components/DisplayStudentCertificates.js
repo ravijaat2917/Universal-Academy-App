@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { message, Modal, Button } from "antd";
+import { message, Modal } from "antd";
 
 const DisplayStudentCertificates = () => {
   const navigate = useNavigate();
@@ -10,12 +10,13 @@ const DisplayStudentCertificates = () => {
   const [listChanged, setListChanged] = useState("");
   const [modal3Open, setModal3Open] = useState(false);
 
+  const [selected, setSelected] = useState();
+
   const deleteCertificate = async () => {
     try {
-      const res = await axios.delete(`/api/v1/delete/student/${params.id}`);
-      if (res.data.success) {
+      const res = await axios.delete(`/api/v1/delete/certificate/${selected}`);
+      if (res.data.success === true) {
         message.success("Deleted Successfully");
-        navigate("/students");
         setListChanged(generateString(4));
       } else {
         // message.error(res.data.message);
@@ -70,7 +71,7 @@ const DisplayStudentCertificates = () => {
                   fontWeight: "500",
                   textAlign: "center",
                 }}
-                to={`/verify/certificate/${c.certificateID}`}
+                // to={`/verify/certificate/${c.certificateID}`}
               >
                 <div
                   className="d-flex m-3"
@@ -88,15 +89,16 @@ const DisplayStudentCertificates = () => {
                       >
                         View{" "}
                       </button>
-                      {/* 
+                      
                       <button
                         onClick={() => {
                           setModal3Open(true);
+                          setSelected(c._id);
                         }}
                         className="btn btn-danger"
                       >
                         Delete
-                      </button> */}
+                      </button>
                     </div>
                   </div>
                 </div>
