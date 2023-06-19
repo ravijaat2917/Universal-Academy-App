@@ -3,12 +3,13 @@ import { Link, useParams } from "react-router-dom";
 import { saveAsPng } from "save-html-as-image";
 import { getCurrentDate } from "../../Helpers";
 import QRCode from "../../Components/CreateQrCodeForCertificate";
-import CertificateTamplet from "../../ImagesAndLogos/certificateTamplet.png";
+import CertificateTamplet from "../../ImagesAndLogos/certificateTamplet.jpg";
 import { message } from "antd";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import AdminLayout from "../../Components/AdminLayout";
 import "../../Styles/CreateCertificateStyles.css";
+import { getMonthName } from "../../data/Months";
 
 const CertificateHeaderContent = () => {
   const navigate = useNavigate();
@@ -21,6 +22,21 @@ const CertificateHeaderContent = () => {
   const [QrLink, setQrLink] = useState();
   const [verificationLink, setVerificationLink] = useState();
   const [certificateID, setCertificateID] = useState();
+  const [issueDay, setIssueDay] = useState(issueDate.slice(0, 2));
+  const [issueMonth, setIssueMonth] = useState(
+    getMonthName(issueDate.slice(3, 4))
+  );
+  const [issueYear, setIssueYear] = useState(issueDate.slice(5));
+  const [duration, setDuration] = useState();
+  const [center, setCenter] = useState();
+  const [from, setFrom] = useState(getCurrentDate());
+  const [to, setTo] = useState(getCurrentDate());
+
+  useEffect(() => {
+    setIssueDay(issueDate.slice(0, 2));
+    setIssueMonth(getMonthName(issueDate.slice(3, 4)));
+    setIssueYear(issueDate.slice(5));
+  }, [issueDate]);
 
   const genUID = () => {
     return Date.now().toString();
@@ -116,32 +132,71 @@ const CertificateHeaderContent = () => {
           </Link>
           <div className="Meta">
             <h1 style={{ color: "#274972" }}>Universal Certificates</h1>
-            <div className="d-flex">
-              <input
-                type="text"
-                onChange={(e) => {
-                  setName(e.target.value);
+            <div className="d-flex wrap" style={{ flexWrap: "wrap" }}>
+              <form>
+                <label className="pt-3">Name</label>
+                <input
+                  type="text"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                  value={name}
+                  placeholder="Enter Name"
+                ></input>
+                <label className="pt-3 ">Course</label>
+
+                <input
+                  type="text"
+                  onChange={(e) => {
+                    setCourse(e.target.value);
+                  }}
+                  value={course}
+                  placeholder="Enter Course"
+                ></input>
+                <label className="pt-3">Duration</label>
+                <input
+                  type="text"
+                  onChange={(e) => {
+                    setDuration(e.target.value);
+                  }}
+                  placeholder="Enter Duration"
+                ></input>
+                <label className="pt-3">Center</label>
+                <input
+                  required="true"
+                  type="text"
+                  onChange={(e) => {
+                    setCenter(e.target.value);
+                  }}
+                  placeholder="Enter Center"
+                ></input>
+                <label className="pt-3">From</label>
+                <input
+                  type="text"
+                  defaultValue={from}
+                  onChange={(e) => {
+                    setFrom(e.target.value);
+                  }}
+                ></input>
+                <label className="pt-3">To</label>
+                <input
+                  type="text"
+                  defaultValue={from}
+                  onChange={(e) => {
+                    setTo(e.target.value);
+                  }}
+                ></input>
+                {/* <button
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  saveAsPng(document.querySelector("#certificateWrapper"));
                 }}
-                value={name}
-                placeholder="Enter Name"
-              ></input>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setCourse(e.target.value);
-                }}
-                value={course}
-                placeholder="Enter Course"
-              ></input>
-              <input
-                type="text"
-                defaultValue={Date.now().toString()}
-                onChange={(e) => {
-                  setIssueDate(e.target.value);
-                }}
-                value={issueDate}
-                placeholder={issueDate}
-              ></input>
+                className="btn btn-primary m-3"
+              >
+                Download
+              </button> */}
+              </form>
             </div>
             <div
               className=" d-flex"
@@ -151,6 +206,7 @@ const CertificateHeaderContent = () => {
               }}
             >
               <button
+                type="submit"
                 onClick={(e) => {
                   e.preventDefault();
                   saveAsPng(document.querySelector("#certificateWrapper"));
@@ -159,6 +215,7 @@ const CertificateHeaderContent = () => {
               >
                 Download
               </button>
+
               <label
                 style={{
                   border: "2px solid black",
@@ -191,14 +248,24 @@ const CertificateHeaderContent = () => {
             </div>
           </div>
           <div id="certificateWrapper" ref={certificateWrapper}>
-            <p>{name}</p>
-            <div className="issueDate">
-              <p style={{ fontSize: "21px" }}>{issueDate}</p>
-            </div>
+            <p className="name">{name}</p>
+            <p className="registrationID">{uid}</p>
+            <p className="issueDate-day">{issueDay}</p>
+            <p className="issueDate-month">{issueMonth}</p>
+            <p className="issueDate-year">{issueYear}</p>
+
+            <p className="center">{center}</p>
+            <p className="duration">{duration}</p>
+
+            <p className="issueDate-from">{from}</p>
+            <p className="issueDate-to">{to}</p>
+
             <span>{course}</span>
             <div className="QRCode">
               <QRCode link={QrLink} />
             </div>
+
+            {/* <object width="100%" height="400" data={CertificateTamplet} type="application/pdf">   </object> */}
             <img
               className="certificateTamplate"
               width={1100}

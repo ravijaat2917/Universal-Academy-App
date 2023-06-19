@@ -40,36 +40,35 @@
 
 .App #certificateWrapper .QRCode{
     position: absolute;
-    top: 420px;
-    left: 210px;
+    top: 525px;
+    left: 180px;
     display: flex;
     justify-content: center;
     width: 100%;
 }
-.App #certificateWrapper p {
-    font-weight: 500;
+.App #certificateWrapper .name {
+    font-weight: 600;
     position: absolute;
-    top: 260px;
+    top: 280px;
     left: 0px;
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: 22pt;
+    font-size: 17pt;
     font-family: 'Merriweather', serif;
-/* font-family: 'Playfair Display', serif;
-font-family: 'Poppins', sans-serif; */
   }
 
   .App #certificateWrapper span {
-    color: #274972;
-    font-weight: 700;
+    color: black;
+    font-weight: 400;
     position: absolute;
-    top: 350px;
+    /* background-color: white; */
+    top: 405px;
     left: 0px;
     display: flex;
     justify-content: center;
     width: 100%;
-    font-size: 30pt;
+    font-size: 18pt;
     font-family: 'Merriweather', serif;
 /* font-family: 'Playfair Display', serif;
 font-family: 'Poppins', sans-serif; */
@@ -85,4 +84,105 @@ font-family: 'Poppins', sans-serif; */
     width: 100%;
     padding: 0px !important;
     margin: 0px !important;
+}
+
+.App #certificateWrapper .registrationID{
+  font-weight: 800;
+  position: absolute;
+  font-family: Orbitron sans-serif;
+  display: flex;
+  justify-content: center;
+  top: 55px;
+  left: 231px;
+  font-size: 23px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.App #certificateWrapper .issueDate-day{
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 321px;
+  font-size: 20px;
+  right: 190px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.App #certificateWrapper .issueDate-month{
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 321px;
+  font-size: 20px;
+  left: 130px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.App #certificateWrapper .issueDate-year{
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 346px;
+  font-size: 20px;
+  left: 4px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.App #certificateWrapper .duration{
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 441px;
+  font-size: 20px;
+  right: 225px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.App #certificateWrapper .center{
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 455px;
+  font-size: 20px;
+  left: 670px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.App #certificateWrapper .issueDate-from{
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 475px;
+  font-size: 20px;
+  right: -20px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.App #certificateWrapper .issueDate-to{
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 475px;
+  font-size: 20px;
+  left: 220px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
 }

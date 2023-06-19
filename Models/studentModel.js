@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const studentSchema = new mongoose.Schema(
   {
-    registration: { type: String },
+    registration: { type: String , required:true },
     name: {
       type: String,
       required: [true, "Name is Required"],
