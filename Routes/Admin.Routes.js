@@ -10,6 +10,7 @@ import {
   getReadInquiries,
   getSingleStudentDetails,
   getUnreadInquiries,
+  getUserByCertificateID,
   markAllReadCOntroller,
   markReadController,
   studentDetailsForCertificate,
@@ -66,5 +67,8 @@ router.get('/get/student/certificates/:id', getAllCertificatesController);
 
 // get single certificate image
 router.get('/certificate/image/:id', getCertificateImageBinaryData);
+
+router.get('/student/by/certificate/:id', getUserByCertificateID);
+
 
 export default router;

@@ -11,8 +11,8 @@
   flex-grow: 1;
   padding: 15px;
 }
-.App .Meta button{
-    margin: 12px 0px !important;
+.App .Meta button {
+  margin: 12px 0px !important;
 }
 
 .App .Meta input {
@@ -38,55 +38,53 @@
   display: block;
 }
 
-.App #certificateWrapper .QRCode{
-    position: absolute;
-    top: 525px;
-    left: 180px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.App #certificateWrapper .QRCode {
+  position: absolute;
+  top: 525px;
+  left: 180px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .App #certificateWrapper .name {
-    font-weight: 600;
-    position: absolute;
-    top: 280px;
-    left: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 17pt;
-    font-family: 'Merriweather', serif;
-  }
-
-  .App #certificateWrapper span {
-    color: black;
-    font-weight: 400;
-    position: absolute;
-    /* background-color: white; */
-    top: 405px;
-    left: 0px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    font-size: 18pt;
-    font-family: 'Merriweather', serif;
-/* font-family: 'Playfair Display', serif;
-font-family: 'Poppins', sans-serif; */
-  }
-
-  .App #certificateWrapper .issueDate{
-    font-weight: 500;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 190px;
-    right: 215px;
-    width: 100%;
-    padding: 0px !important;
-    margin: 0px !important;
+  font-weight: 600;
+  position: absolute;
+  top: 280px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 17pt;
+  font-family: "Merriweather", serif;
 }
 
-.App #certificateWrapper .registrationID{
+.App #certificateWrapper span {
+  color: black;
+  font-weight: 400;
+  position: absolute;
+  /* background-color: white; */
+  top: 405px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 18pt;
+  font-family: "Merriweather", serif;
+}
+
+.App #certificateWrapper .issueDate {
+  font-weight: 500;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 190px;
+  right: 215px;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.App #certificateWrapper .registrationID {
   font-weight: 800;
   position: absolute;
   font-family: Orbitron sans-serif;
@@ -100,7 +98,7 @@ font-family: 'Poppins', sans-serif; */
   margin: 0px !important;
 }
 
-.App #certificateWrapper .issueDate-day{
+.App #certificateWrapper .issueDate-day {
   font-weight: 500;
   position: absolute;
   display: flex;
@@ -113,7 +111,7 @@ font-family: 'Poppins', sans-serif; */
   margin: 0px !important;
 }
 
-.App #certificateWrapper .issueDate-month{
+.App #certificateWrapper .issueDate-month {
   font-weight: 500;
   position: absolute;
   display: flex;
@@ -125,7 +123,7 @@ font-family: 'Poppins', sans-serif; */
   padding: 0px !important;
   margin: 0px !important;
 }
-.App #certificateWrapper .issueDate-year{
+.App #certificateWrapper .issueDate-year {
   font-weight: 500;
   position: absolute;
   display: flex;
@@ -138,7 +136,7 @@ font-family: 'Poppins', sans-serif; */
   margin: 0px !important;
 }
 
-.App #certificateWrapper .duration{
+.App #certificateWrapper .duration {
   font-weight: 500;
   position: absolute;
   display: flex;
@@ -150,36 +148,36 @@ font-family: 'Poppins', sans-serif; */
   padding: 0px !important;
   margin: 0px !important;
 }
-.App #certificateWrapper .center{
+.App #certificateWrapper .center {
   font-weight: 500;
   position: absolute;
   display: flex;
   justify-content: center;
-  top: 455px;
+  top: 457px;
   font-size: 20px;
   left: 670px;
   width: 100%;
   padding: 0px !important;
   margin: 0px !important;
 }
-.App #certificateWrapper .issueDate-from{
+.App #certificateWrapper .issueDate-from {
   font-weight: 500;
   position: absolute;
   display: flex;
   justify-content: center;
-  top: 475px;
+  top: 476px;
   font-size: 20px;
   right: -20px;
   width: 100%;
   padding: 0px !important;
   margin: 0px !important;
 }
-.App #certificateWrapper .issueDate-to{
+.App #certificateWrapper .issueDate-to {
   font-weight: 500;
   position: absolute;
   display: flex;
   justify-content: center;
-  top: 475px;
+  top: 476px;
   font-size: 20px;
   left: 220px;
   width: 100%;

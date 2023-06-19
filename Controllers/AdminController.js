@@ -70,13 +70,11 @@ export const verifyAdminController = async (req, res) => {
       const id = match._id;
       const admin = await studentModel.findById(id);
 
-      res
-        .status(200)
-        .send({
-          success: true,
-          message: "Admin Authenticated",
-          admin: admin.isAdmin,
-        });
+      res.status(200).send({
+        success: true,
+        message: "Admin Authenticated",
+        admin: admin.isAdmin,
+      });
     } else {
       res
         .status(400)
@@ -312,13 +310,11 @@ export const getAllCertificatesController = async (req, res) => {
     const certificates = await certificateModel
       .find({ student: id })
       .select("-photo");
-    res
-      .status(200)
-      .send({
-        success: true,
-        mesage: "Certificate Fetched Successfully",
-        certificates,
-      });
+    res.status(200).send({
+      success: true,
+      mesage: "Certificate Fetched Successfully",
+      certificates,
+    });
   } catch (error) {
     res
       .status(500)
@@ -329,14 +325,31 @@ export const getAllCertificatesController = async (req, res) => {
 export const getCertificateImageBinaryData = async (req, res) => {
   try {
     const { id } = req.params;
-    const certificates = await certificateModel
-      .find({ student: id })
-      .select("photo");
+    const certificates = await certificateModel.findOne({ certificateID: id });
+    // res.send(certificates);
     res.set("Content-type", certificates.photo.contentType);
     return res.status(200).send(certificates.photo.data);
   } catch (error) {
     res
       .status(500)
       .send({ success: false, message: "Error in getting Certificate Image" });
+  }
+};
+
+export const getUserByCertificateID = async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    const certificate = await certificateModel
+      .findOne({ certificateID: id })
+      .select("-photo");
+
+    const student = await studentModel.findById(certificate.student);
+
+    res.status(200).send({ success: true, student });
+  } catch (error) {
+    res
+      .status(500)
+      .send({ success: false, message: "eeror in getting student details" });
   }
 };
