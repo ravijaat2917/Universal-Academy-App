@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Select, message, Modal } from "antd";
 import axios from "axios";
-import { useNavigate, useParams , Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import AdminLayout from "../../Components/AdminLayout";
 
 const { Option } = Select;
@@ -103,7 +103,7 @@ const Dashboard = () => {
       const res = await axios.post("/api/v1/verify/admin", {
         jwt: localStorage.getItem("token"),
       });
-      setOk(res.data.success);
+      setOk(res.data.admin);
     } catch (error) {
       console.log(error);
     }
@@ -120,7 +120,11 @@ const Dashboard = () => {
     <AdminLayout>
       {ok === true ? (
         <>
-          <Link  className="m-3" to={`/students`}><button className="btn" style={{border:'1px solid black'}}><i class="fa-solid fa-arrow-left"></i></button></Link>
+          <Link className="m-3" to={`/students`}>
+            <button className="btn" style={{ border: "1px solid black" }}>
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </Link>
           <button
             onClick={() => setProfile("profile")}
             className="btn btn-info m-2"
@@ -134,7 +138,10 @@ const Dashboard = () => {
             Update
           </button>
           <button
-            onClick={() => { setProfile("profile");  navigate(`/certificates/${params.id}`)} }
+            onClick={() => {
+              setProfile("profile");
+              navigate(`/certificates/${params.id}`);
+            }}
             className="btn btn-secondary m-2"
           >
             Certificates
@@ -291,7 +298,14 @@ const Dashboard = () => {
                 className="mt-3"
                 style={{ display: "flex", justifyContent: "center" }}
               >
-                <div className="card mt-3 p-4" style={{ minWidth: "300px" ,maxWidth:'600px' ,width:'100%'}}>
+                <div
+                  className="card mt-3 p-4"
+                  style={{
+                    minWidth: "300px",
+                    maxWidth: "600px",
+                    width: "100%",
+                  }}
+                >
                   <Form form={form} onFinish={onFinish} layout="vertical">
                     <Form.Item className="mt-3 " name={"name"} label="Name ">
                       <Input
@@ -433,18 +447,18 @@ const Dashboard = () => {
         >
           <div>
             <p style={{ fontSize: "32px", fontWeight: "500" }}>
-              Session Time Out Please Login Again
+              You Are Not Admin
             </p>
           </div>
           <div>
             <button
               onClick={() => {
-                navigate("/admin-login");
+                navigate("/");
               }}
               className="btn btn-primary"
               style={{ width: "350px", margin: "50px" }}
             >
-              Login Now
+              Back To Home Page
             </button>
           </div>
         </div>

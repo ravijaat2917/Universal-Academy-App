@@ -24,10 +24,9 @@ const LAYOUT = ({ children }) => {
         jwt: localStorage.getItem("token"),
       });
       if (res.data.admin === true) {
-        
         setOk(true);
       } else {
-        setOk(res.data.success);
+        setOk(res.data.admin);
       }
     } catch (error) {
       console.log(error);

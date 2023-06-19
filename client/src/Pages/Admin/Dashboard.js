@@ -12,7 +12,7 @@ const Dashboard = () => {
       const res = await axios.post("/api/v1/verify/admin", {
         jwt: localStorage.getItem("token"),
       });
-      setOk(res.data.success);
+      setOk(res.data.admin);
     } catch (error) {
       console.log(error);
     }
@@ -41,18 +41,18 @@ const Dashboard = () => {
         >
           <div>
             <p style={{ fontSize: "32px", fontWeight: "500" }}>
-              Session Time Out Please Login Again
+              You Are Not Admin
             </p>
           </div>
           <div>
             <button
               onClick={() => {
-                navigate("/admin-login");
+                navigate("/");
               }}
               className="btn btn-primary"
               style={{ width: "350px", margin: "50px" }}
             >
-              Login Now
+              Back To Home Page
             </button>
           </div>
         </div>

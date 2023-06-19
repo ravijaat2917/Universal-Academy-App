@@ -70,7 +70,13 @@ export const verifyAdminController = async (req, res) => {
       const id = match._id;
       const admin = await studentModel.findById(id);
 
-      res.status(200).send({ success: true, message: "Admin Authenticated" , admin:admin.admin });
+      res
+        .status(200)
+        .send({
+          success: true,
+          message: "Admin Authenticated",
+          admin: admin.isAdmin,
+        });
     } else {
       res
         .status(400)
@@ -282,13 +288,13 @@ export const studentDetailsForCertificate = async (req, res) => {
 export const uploadCertificateController = async (req, res) => {
   try {
     const { photo } = req.files;
-    const { certificateID, verificationLink, student  , course} = req.fields;
+    const { certificateID, verificationLink, student, course } = req.fields;
 
     const c = new certificateModel({
       certificateID,
       verificationLink,
       student,
-      course
+      course,
     });
     c.photo.data = fs.readFileSync(photo.path);
     c.photo.contentType = photo.type;
@@ -303,21 +309,31 @@ export const uploadCertificateController = async (req, res) => {
 export const getAllCertificatesController = async (req, res) => {
   try {
     const { id } = req.params;
-    const certificates = await certificateModel.find({ student: id }).select('-photo');
-    res.status(200).send({ success: true, mesage: "Certificate Fetched Successfully", certificates });
+    const certificates = await certificateModel
+      .find({ student: id })
+      .select("-photo");
+    res
+      .status(200)
+      .send({
+        success: true,
+        mesage: "Certificate Fetched Successfully",
+        certificates,
+      });
   } catch (error) {
     res
       .status(500)
       .send({ success: false, message: "Error in getting Certificate Image" });
   }
-}
+};
 
 export const getCertificateImageBinaryData = async (req, res) => {
   try {
     const { id } = req.params;
-    const certificates = await certificateModel.find({ student: id }).select('photo');
-      res.set("Content-type", certificates.photo.contentType);
-      return res.status(200).send(certificates.photo.data);
+    const certificates = await certificateModel
+      .find({ student: id })
+      .select("photo");
+    res.set("Content-type", certificates.photo.contentType);
+    return res.status(200).send(certificates.photo.data);
   } catch (error) {
     res
       .status(500)

@@ -71,7 +71,12 @@ function LandingPages() {
                   <Input type="email" required></Input>
                 </Form.Item>
                 <Form.Item label="Contact Number" name={"phone"}>
-                  <Input minLength={10} maxLength={10} type="phone" required></Input>
+                  <Input
+                    minLength={10}
+                    maxLength={10}
+                    type="phone"
+                    required
+                  ></Input>
                 </Form.Item>
                 <Form.Item label="Course" name={"message"}>
                   <Input type="text" required></Input>
@@ -83,6 +88,7 @@ function LandingPages() {
             </div>
           </div>
         </div>
+
         <div className="About">
           <div className="Details">
             <p className="DetailsHeading">Welcome to Universal Academy </p>
@@ -120,42 +126,7 @@ function LandingPages() {
             </div>
           </div>
         </div>
-        <div
-          className="d-flex"
-          style={{
-            backgroundColor: "#F4F5F9",
-            paddingBottom: "22px",
-            paddingTop: "0px",
-          }}
-        >
-          <div>
-            <div>
-              <p className="slogans">
-                We Provide Best Professional
-                <br /> Certification For IT Courses
-              </p>
-              <p className="slogan-content">
-                Universal Academy offers training on Cisco Certification
-                programs like CCNA, CCNP, CCIE (All Track), Juniper, Microsoft,
-                Linux, Firewall, VMware, Industrial Automation, Automation-RPA,
-                Telecomm Engineer, C, C++, Java, Android, Dot Net, Oracle,
-                Hadoop, Web Programing, Web Design, Digital Marketing, DevOps.
-                Universal Academy is first choice for Trainings on Cisco and Juniper
-                IT certifications.
-              </p>
-              <h3>Rack Rental</h3>
-              <p className="slogan-content2">
-                Dedicate racks available to each student. No fake image or fake
-                promises original rack setup and Universal Academy is here for
-                making careers.
-              </p>
-              <p className="button">Read More</p>
-            </div>
-          </div>
-          <div>
-            <img className="demo-image1" src={Image} alt="ComputerImage" />
-          </div>
-        </div>
+
         <div>
           <div>
             <p
@@ -222,6 +193,45 @@ function LandingPages() {
             </div>
           </div>
         </div>
+
+        <div
+          className="d-flex"
+          style={{
+            backgroundColor: "#F4F5F9",
+            paddingBottom: "22px",
+            paddingTop: "0px",
+          }}
+        >
+          <div>
+            <div>
+              <p className="slogans">
+                We Provide Best Professional
+                <br /> Certification For IT Courses
+              </p>
+              <p className="slogan-content">
+                Universal Academy offers training on Cisco Certification
+                programs like CCNA, CCNP, CCIE (All Track), Juniper, Microsoft,
+                Linux, Firewall, VMware, Industrial Automation, Automation-RPA,
+                Telecomm Engineer, C, C++, Java, Android, Dot Net, Oracle,
+                Hadoop, Web Programing, Web Design, Digital Marketing, DevOps.
+                Universal Academy is first choice for Trainings on Cisco and
+                Juniper IT certifications.
+              </p>
+              <h3>Rack Rental</h3>
+              <p className="slogan-content2">
+                Dedicate racks available to each student. No fake image or fake
+                promises original rack setup and Universal Academy is here for
+                making careers.
+              </p>
+              <p className="button">Read More</p>
+            </div>
+          </div>
+          <div>
+            <img className="demo-image1" src={Image} alt="ComputerImage" />
+          </div>
+        </div>
+
+        <hr style={{ fontWeight: "500", lineHeight: "20px", height: "20px" }} />
       </div>
     </Layout>
   );
