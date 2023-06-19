@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import verifiedLogo from "../ImagesAndLogos/verifiedLogo.png";
+import unverified from '../ImagesAndLogos/icons8-unverified-96.png';
 import Footer from "../Components/Footer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,15 +10,10 @@ const CertificateVerificationPage = () => {
   const params = useParams();
 
   const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
-  const [course, setCourse] = useState();
   const [guardian, setGuardian] = useState();
-  const [gender, setGender] = useState();
   const [registeration, setRegisteration] = useState();
-  const [password, setPassword] = useState();
 
-  const [studentID, setStudentID] = useState();
+  const [verified, setVerified] = useState(false);
 
   const getStudentDetails = async () => {
     try {
@@ -25,9 +21,8 @@ const CertificateVerificationPage = () => {
         `/api/v1/student/by/certificate/${params.id}`
       );
       if (res.data.success) {
+        setVerified(true);
         setName(res.data.student.name);
-        setEmail(res.data.student.email);
-        setGender(res.data.student.gender);
         setGuardian(res.data.student.guardian);
         setRegisteration(res.data.student.registration);
       } else {
@@ -46,7 +41,9 @@ const CertificateVerificationPage = () => {
   return (
     <>
       <div style={{ backgroundColor: "grey" }}>
-        <div
+
+        {verified === true ? (<>
+          <div
           className="d-flex pt-4 "
           style={{
             margin: "20px",
@@ -138,74 +135,6 @@ const CertificateVerificationPage = () => {
                   </p>
                 </div>
               </span>
-              {/* <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <div
-                      className="d-flex justifyTextCenter"
-                      style={{
-                        justifyContent: "space-between",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ minWidth: "140px" }}>
-                        <b>Email </b>
-                      </p>
-                      <p className="semicol">:</p>
-                      <p className="mb-2" style={{ minWidth: "140px" }}>
-                        {email}
-                      </p>
-                    </div>
-                  </span> */}
-              {/* <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <div
-                      className="d-flex justifyTextCenter"
-                      style={{
-                        justifyContent: "space-between",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ minWidth: "140px" }}>
-                        <b>Contact No. </b>
-                      </p>
-                      <p className="semicol">:</p>
-                      <p className="mb-2" style={{ minWidth: "140px" }}>
-                        {phone}
-                      </p>
-                    </div>
-                  </span> */}
-              {/* <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <div
-                      className="d-flex justifyTextCenter"
-                      style={{
-                        justifyContent: "space-between",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ minWidth: "140px" }}>
-                        <b>Gender</b>
-                      </p>
-                      <p className="semicol">:</p>
-                      <p className="mb-2" style={{ minWidth: "140px" }}>
-                        {gender}
-                      </p>
-                    </div>
-                  </span> */}
-              {/* <span style={{ fontSize: "18px", fontFamily: "monospace" }}>
-                    <div
-                      className="d-flex justifyTextCenter"
-                      style={{
-                        justifyContent: "space-between",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p style={{ minWidth: "140px" }}>
-                        <b>Course </b>
-                      </p>
-                      <p className="semicol">:</p>
-                      <p className="mb-2" style={{ minWidth: "140px" }}>
-                        {course}
-                      </p>
-                    </div>
-                  </span> */}
             </div>
           </div>
         </div>
@@ -220,7 +149,18 @@ const CertificateVerificationPage = () => {
             src={`/api/v1/certificate/image/${params.id}`}
             alt="certificate image"
           />
-        </div>
+          </div>
+        </>) : (
+            < >
+              <div style={{height:'65vh'}}>
+              <div className="d-flex" style={{ paddingTop:'120px' ,display:'flex', flexDirection:'row',justifyContent:'center' }}>
+                  
+                  <img height={'120px'} src={unverified} /><p style={{ paddingTop:'38px',fontSize:'30px' , color:'white'}}>Invalid QR Code</p>
+                
+              </div></div></>
+        )}
+
+        
       </div>
       <div>
         <Footer />
