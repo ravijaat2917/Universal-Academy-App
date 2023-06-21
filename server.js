@@ -12,6 +12,8 @@ const app = express();
 
 dotenv.config();
 
+const port = process.env.PORT || 8080;
+
 connectDb(process.env.DATABASE_URL);
 
 app.use(cors());
@@ -30,6 +32,6 @@ app.use("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-app.listen(8080, () => {
-  console.log(`Server Listening on Port 8080`);
+app.listen(port, () => {
+  console.log(`Server Listening on Port ${port}`);
 });
