@@ -15,7 +15,7 @@ const CertificateHeaderContent = () => {
   const navigate = useNavigate();
   const params = useParams();
   const certificateWrapper = React.createRef();
-  const [ok, setOk] = useState();
+  const [ok, setOk] = useState(false);
   const [name, setName] = useState();
   const [course, setCourse] = useState();
   const [issueDate, setIssueDate] = useState(getCurrentDate());
@@ -45,8 +45,7 @@ const CertificateHeaderContent = () => {
   const setVerificationLinkandUid = () => {
     const CI = genUID();
     setCertificateID(CI);
-    const link =
-      "https://universal-academy.onrender.com/verify/certificate/" + CI;
+    const link = "https://www.universalacademy.co/verify/certificate/" + CI;
     setVerificationLink(link);
     setQrLink(link);
   };
