@@ -18,13 +18,21 @@ const contentStyle = {
 const LAYOUT = ({ children }) => {
   const navigate = useNavigate();
   const [ok, setOk] = useState(false);
+  const [verifiedStudent, setVerifiedStudent] = useState();
+  const [userId, setUserId] = useState();
+
+
+
   const autUser = async () => {
     try {
       const res = await axios.post("api/v1/verify/admin", {
         jwt: localStorage.getItem("token"),
       });
+      setUserId(res.data.userId);
       if (res.data.admin === true) {
         setOk(true);
+      } else if(res.data.verifiedStudent === true){
+        setVerifiedStudent(true);
       } else {
         setOk(res.data.admin);
       }
@@ -35,7 +43,7 @@ const LAYOUT = ({ children }) => {
 
   useEffect(() => {
     autUser();
-  }, [ok]);
+  }, [ok , verifiedStudent]);
   return (
     <>
       <Space
@@ -56,10 +64,6 @@ const LAYOUT = ({ children }) => {
                 <h2>Universal Academy</h2>
               </div>
             </div>
-            {/* <div className="smallScreenWidget">
-              <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-              <i class="fa-solid fa-bars"></i>
-            </div> */}
             <div>
               <nav className="ButtonsSection">
                 <div className="navigation-buttons">
@@ -71,7 +75,7 @@ const LAYOUT = ({ children }) => {
                     Home
                   </p>
                 </div>
-                <div className="navigation-buttons">
+                {verifiedStudent === true ? (<p></p>) : (<><div className="navigation-buttons">
                   <p
                     onClick={() => {
                       navigate("/courses");
@@ -88,7 +92,8 @@ const LAYOUT = ({ children }) => {
                   >
                     About
                   </p>
-                </div>
+                </div>  </>)}
+                
                 {localStorage.getItem("token") ? (
                   <div className="navigation-buttons">
                     {ok === true ? (
@@ -102,7 +107,7 @@ const LAYOUT = ({ children }) => {
                     ) : (
                       <p
                         onClick={() => {
-                          navigate("/profile");
+                          navigate(`/profile/${userId}`);
                         }}
                       >
                         Profile

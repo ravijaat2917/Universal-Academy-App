@@ -62,17 +62,6 @@ const DisplayStudentCertificates = () => {
         {certificates.map((c) => {
           return (
             <div>
-              <Link
-                style={{
-                  margin: "30px",
-                  color: "black",
-                  width: "100%",
-                  fontSize: "20px",
-                  fontWeight: "500",
-                  textAlign: "center",
-                }}
-                // to={`/verify/certificate/${c.certificateID}`}
-              >
                 <div
                   className="d-flex m-3"
                   style={{ justifyContent: "space-around", width: "100%" }}
@@ -103,7 +92,6 @@ const DisplayStudentCertificates = () => {
                   </div>
                 </div>
                 <hr />
-              </Link>
             </div>
           );
         })}

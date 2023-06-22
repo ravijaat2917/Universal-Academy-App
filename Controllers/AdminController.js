@@ -74,6 +74,8 @@ export const verifyAdminController = async (req, res) => {
         success: true,
         message: "Admin Authenticated",
         admin: admin.isAdmin,
+        verifiedStudent: admin.verified,
+        userId:admin._id
       });
     } else {
       res

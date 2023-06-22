@@ -149,7 +149,7 @@ const CertificateVerificationPage = () => {
               <img
                 className="m-5"
                 width={"100%"}
-                style={{ maxWidth: "800px" }}
+                style={{ maxWidth: "1000px" }}
                 src={`/api/v1/certificate/image/${params.id}`}
                 alt="certificate image"
               />
