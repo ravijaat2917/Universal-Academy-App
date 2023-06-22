@@ -157,7 +157,7 @@ export const getAllStudents = async (req, res) => {
 
 export const addNewVerifiedStudentController = async (req, res) => {
   try {
-    var { name, email, phone, gender, guardian, course } = req.body;
+    var { name, email, phone, gender, guardian, course , registration } = req.body;
 
     const existingEmail = await studentModel.findOne({ email });
     if (existingEmail) {
@@ -179,12 +179,6 @@ export const addNewVerifiedStudentController = async (req, res) => {
     } else {
       password = name.slice(0) + phone.slice(phone.length - 4);
     }
-
-    const genUID = () => {
-      return Date.now().toString().slice(0, 10);
-    };
-
-    const registration = genUID();
     const student = new studentModel({
       name,
       phone,

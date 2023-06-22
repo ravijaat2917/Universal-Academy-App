@@ -11,7 +11,7 @@ const Footer = () => {
             Ganpati Plaza, 1st floor, Nandrampur Bass Rd, Dharuhera, Haryana
             <br /> 123106
             <br />
-            Phone: (+91) 9991976174
+            Phone: (+91) 9991976174 / 8901196174
             <br />
             Email: learnuniq@gmail.com
           </p>
@@ -25,7 +25,7 @@ const Footer = () => {
         </div>
         <div className="Contents">
           <h4>Quick Links</h4>
-          <a>About Us</a>
+          <a href="/about" style={{color:'black'}}>About Us</a>
           <br />
           <a>Fresh Openings</a>
           <br />

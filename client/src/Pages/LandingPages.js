@@ -59,16 +59,17 @@ function LandingPages() {
                   fontWeight: "20px",
                   paddingBottom: "20px",
                   textAlign: "center",
+                  minWidth:'350px'
                 }}
               >
-                Request For Demo Lecture
+                Send Query
               </h4>
               <Form layout="vertical" onFinish={onFinishHandler}>
                 <Form.Item label="Name" name={"name"}>
                   <Input type="text" required></Input>
                 </Form.Item>
                 <Form.Item label="Email" name={"email"}>
-                  <Input type="email" required></Input>
+                  <Input type="email" placeholder="Optional"></Input>
                 </Form.Item>
                 <Form.Item label="Contact Number" name={"phone"}>
                   <Input

@@ -1,10 +1,14 @@
 import React from "react";
 import { Button, Form, Input, Select, message } from "antd";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
 const AddNewStudentForm = () => {
+
+  const navigate = useNavigate();
+
   const [form] = Form.useForm();
 
   const onFinish = async (values) => {
@@ -14,6 +18,8 @@ const AddNewStudentForm = () => {
       });
       if (res.data.success === true) {
         message.success(res.data.message);
+        navigate('/students');
+        
       } else {
         message.error(res.data.message);
       }
@@ -31,21 +37,30 @@ const AddNewStudentForm = () => {
       >
         <div className="card m-3 p-3" style={{ maxWidth: "500px" }}>
           <Form form={form} onFinish={onFinish} layout="vertical">
+          <Form.Item name={"registration"} label="Reg. Id ">
+              <Input required type="text" placeholder="Enter Reg Id" />
+            </Form.Item>
             <Form.Item name={"name"} label="Name ">
-              <Input required type="text" placeholder="Enter your name" />
+              <Input required type="text" placeholder="Enter Name" />
             </Form.Item>
             <Form.Item name={"guardian"} label="Guardian's Name ">
               <Input
                 required
                 type="text"
-                placeholder="Enter your Guardian's name"
+                placeholder="Enter Guardian's name"
               />
             </Form.Item>
             <Form.Item name={"email"} label="E-mail ">
-              <Input required type="text" placeholder="Enter your name" />
+              <Input required type="text" placeholder="Enter Email" />
             </Form.Item>
             <Form.Item name={"phone"} label="Contact No. ">
-              <Input minLength={10} maxLength={10} required type="phone" placeholder="Enter your name" />
+              <Input
+                minLength={10}
+                maxLength={10}
+                required
+                type="phone"
+                placeholder="Enter your name"
+              />
             </Form.Item>
             <Form.Item
               name="gender"

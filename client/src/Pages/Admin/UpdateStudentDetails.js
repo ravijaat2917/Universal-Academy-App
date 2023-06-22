@@ -9,6 +9,7 @@ const { Option } = Select;
 const Dashboard = () => {
   const [form] = Form.useForm();
   const params = useParams();
+
   const [modal3Open, setModal3Open] = useState(false);
   const [listChanged, setListChanged] = useState("");
 
@@ -48,6 +49,7 @@ const Dashboard = () => {
       if (res.data.success === true) {
         message.success(res.data.message);
         setListChanged(generateString(4));
+        setOk(true)
       } else {
         message.error(res.data.message);
       }

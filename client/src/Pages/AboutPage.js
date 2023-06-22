@@ -46,7 +46,7 @@ const AboutPage = () => {
                 <Input type="text" required></Input>
               </Form.Item>
               <Form.Item label="Email" name={"email"}>
-                <Input type="email" required></Input>
+                <Input type="email" placeholder="Optional"></Input>
               </Form.Item>
               <Form.Item label="Contact Number" name={"phone"}>
                 <Input type="text" required></Input>

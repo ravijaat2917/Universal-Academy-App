@@ -9,13 +9,13 @@ export const createNewInquiry = async (req, res) => {
   try {
     const createInquiry = new inquiryModel({
       name: capitalizeFirstLetter(req.body.name),
-      email: req.body.email,
+      // email: req.body.email,
       phone: req.body.phone,
       message: req.body.message,
     });
     const alreadySend = await inquiryModel.find({
       phone: req.body.phone,
-      email: req.body.email,
+      // email: req.body.email,
       isRead: false,
     });
     if (alreadySend.length >= 1) {
@@ -38,7 +38,7 @@ export const createNewInquiry = async (req, res) => {
 
 export const registerController = async (req, res) => {
   try {
-    const { name, email, password, phone } = req.body;
+    const { name, email, password, phone  } = req.body;
     const existingUser = await studentModel.findOne({ email: req.body.email });
     if (existingUser) {
       return res
