@@ -56,7 +56,10 @@ const StudentsCertificates = () => {
             justifyContent: "center",
           }}
         >
-          <div>
+          <h2>
+            <i class="fa-solid fa-spinner fa-spin-pulse"></i> Loading...
+          </h2>
+          {/* <div>
             <p style={{ fontSize: "32px", fontWeight: "500" }}>
               You Are Not Admin
             </p>
@@ -71,7 +74,7 @@ const StudentsCertificates = () => {
             >
               Back To Home Page
             </button>
-          </div>
+          </div> */}
         </div>
       )}
     </AdminLayout>

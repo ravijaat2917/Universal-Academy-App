@@ -49,7 +49,7 @@ const Dashboard = () => {
       if (res.data.success === true) {
         message.success(res.data.message);
         setListChanged(generateString(4));
-        setOk(true)
+        setOk(true);
       } else {
         message.error(res.data.message);
       }
@@ -447,7 +447,10 @@ const Dashboard = () => {
             justifyContent: "center",
           }}
         >
-          <div>
+          <h2>
+            <i class="fa-solid fa-spinner fa-spin-pulse"></i> Loading...
+          </h2>
+          {/* <div>
             <p style={{ fontSize: "32px", fontWeight: "500" }}>
               You Are Not Admin
             </p>
@@ -462,7 +465,7 @@ const Dashboard = () => {
             >
               Back To Home Page
             </button>
-          </div>
+          </div> */}
         </div>
       )}
     </AdminLayout>
